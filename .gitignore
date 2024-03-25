@@ -1,0 +1,17 @@
+/.idea
+/nbproject
+/node_modules
+/vendor
+/data
+/tenants
+/modules
+/static
+/dev
+/system
+/docs
+/adminpanel
+/npm-debug.log
+/package-lock.json
+/_composer_cache
+/*.zip
+.vscode/
