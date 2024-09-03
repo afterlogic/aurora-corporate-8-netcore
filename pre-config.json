@@ -6,14 +6,17 @@
 		"Core": {
 			"SiteName": "Afterlogic Aurora Corporate",
 			"ProductName": "Afterlogic Aurora Corporate",
-			"AllowGroups": true
+			"AllowGroups": true,
+			"EnableFailedLoginBlock": true,
+			"LoginBlockAvailableTriesCount": 10,
+			"LoginBlockDurationMinutes": 3
 		},
 		"CoreWebclient": {
 			"HeaderModulesOrder": ["mail", "contacts", "calendar", "files"],
 			"DefaultAnonymScreenHash": "login",
 			"DefaultUserScreenHash": "mail",
 			"AllowMobile": true,
-			"ThemeList": ["Default", "DeepForest", "Funny", "Sand"]
+			"ThemeList": ["Default", "DefaultDark", "DeepForest", "Funny", "Sand"]
 		},
 		"SessionTimeoutWebclient": {
 			"Disabled": true
@@ -58,6 +61,15 @@
 		"CpanelIntegrator": {
 			"Disabled": true
 		},
+		"MailSignup": {
+			"Disabled": true
+		},
+		"MailSignupDirectadmin": {
+			"Disabled": true
+		},
+		"MailSignupPlesk": {
+			"Disabled": true
+		},
 		"MailSaveMessageAsPdfPlugin": {
 			"Disabled": true
 		},
@@ -89,6 +101,12 @@
 		"ActiveServer": {
 			"Disabled": true
 		},
+		"SecuritySettingsWebclient": {
+			"Disabled": true
+		},
+		"IPAllowList": {
+			"Disabled": true
+		},
 		"TwoFactorAuth": {
 			"Disabled": true,
 			"FacetIds": [
@@ -108,7 +126,9 @@
 			"IncludePasswordInProfile": false
 		},
 		"Contacts": {
-			"ImportContactsLink": "https://afterlogic.com/docs/aurora-corporate-8/frequently-asked-questions/importing-contacts"
+			"ImportContactsLink": "https://afterlogic.com/docs/aurora-corporate-8/frequently-asked-questions/importing-contacts",
+			"AllowAddressBooksManagement": true,
+			"AllowEditTeamContactsByTenantAdmins": true
 		},
 		"S3Filestorage": {
 			"Disabled": true
@@ -128,6 +148,12 @@
 			"Disabled": true
 		},
 		"RocketChatWebclient": {
+			"Disabled": true
+		},
+		"MailScheduledMessages": {
+			"Disabled": true
+		},
+		"StandardResetPassword": {
 			"Disabled": true
 		}
 	}

@@ -11,16 +11,47 @@
 		}
 	},
 	"repositories": [
-		{"type": "composer", "url":"https://afterlogic.com/composer/"}
+		{
+			"type": "package",
+            "package": {
+				"name": "gufy/cpanel-php",
+				"version": "1.1.0",
+				"dist": {
+					"type": "zip",
+					"url": "https://api.github.com/repos/mgufrone/cpanel-php/zipball/a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
+					"reference": "a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
+					"shasum": ""
+				},
+				"require": {
+					"guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
+					"php": ">=5.3.7"
+				},
+				"type": "library",
+				"autoload": {
+					"psr-0": {
+						"Gufy\\CpanelPhp\\": "src/"
+					}
+				}
+			}
+		},
+		{
+			"type": "composer", "url":"https://afterlogic.com/composer/"
+		}
 	],
 	"require": {
+"afterlogic/aurora-module-webclient-external-clients-login-form": "~0.10.0",
+"afterlogic/aurora-module-push-notificator": "~0.10.0",
+
 		"oomphinc/composer-installers-extender": "^2.0",
 		
 		"afterlogic/aurora-framework": "~0.10.0",
-		"afterlogic/aurora-dev-tools": "~0.9.0",
+		"afterlogic/aurora-dev-tools": "~0.10.0",
+		
+		"psr/http-message": "^1.1",
 		
 		"afterlogic/aurora-module-admin-auth": "~0.10.0",
 		"afterlogic/aurora-module-webclient-adminpanel": "~0.10.0",
+		"afterlogic/aurora-module-webclient-tenant-adminpanel": "~0.10.0",
 		"afterlogic/aurora-module-webclient-logs-viewer": "~0.10.0",
 		"afterlogic/aurora-module-webclient-branding": "~0.10.0",
 		"afterlogic/aurora-module-calendar": "~0.10.0",
@@ -41,7 +72,7 @@
 		"afterlogic/aurora-module-dropbox-filestorage": "~0.10.0",
 		"afterlogic/aurora-module-facebook": "~0.10.0",
 		"afterlogic/aurora-module-webclient-facebook-auth": "~0.10.0",
-		"afterlogic/aurora-module-google": "~0.10.0",
+		"afterlogic/aurora-module-google": "^0.10.10",
 		"afterlogic/aurora-module-googledrive": "~0.10.0",
 		"afterlogic/aurora-module-files": "~0.10.0",
 		"afterlogic/aurora-module-personalfiles": "~0.10.0",
@@ -73,7 +104,6 @@
 		"afterlogic/aurora-module-webclient-settings": "~0.10.0",
 		"afterlogic/aurora-module-webclient-standard-login-form": "~0.10.0",
 		"afterlogic/aurora-module-mobile-webclient-standard-login-form": "~0.10.0",
-		"afterlogic/aurora-module-eav-object-viewer": "~0.10.0",
 		"afterlogic/aurora-module-oembed-files": "~0.10.0",
 		"afterlogic/aurora-module-files-zipfolder": "~0.10.0",
 		"afterlogic/aurora-module-mail-multi-accounts-plugin": "~0.10.0",
@@ -82,6 +112,8 @@
 		"afterlogic/aurora-module-office-document-viewer": "~0.10.0",
 		"afterlogic/aurora-module-office-document-editor": "~0.10.0",
 		"afterlogic/aurora-module-cpanel-integrator": "~0.10.0",
+		"afterlogic/aurora-module-mail-signup-directadmin": "~0.10.0",
+		"afterlogic/aurora-module-mail-signup-plesk": "~0.10.0",
 		"afterlogic/aurora-module-tasks": "~0.10.0",
 		"afterlogic/aurora-module-import-export-mail-plugin": "~0.10.0",
 		"afterlogic/aurora-module-webclient-recaptcha-plugin": "~0.10.0",
@@ -96,8 +128,7 @@
 		"afterlogic/aurora-module-team-contacts": "~0.10.0",
 		"afterlogic/aurora-module-corporatefiles": "~0.10.0",
 		"afterlogic/aurora-module-webclient-outlook-sync": "~0.10.0",
-		
-		"afterlogic/aurora-module-webclient-external-clients-login-form": "~0.10.0",
+		"afterlogic/aurora-module-webclient-mail-signup": "~0.10.0",
 		"afterlogic/aurora-module-two-factor-auth": "~0.10.0",
 		
 		"afterlogic/aurora-module-override-user-settings": "~0.10.0",
@@ -111,7 +142,10 @@
 		"afterlogic/aurora-module-webclient-openpgp-files": "~0.10.0",
 		"afterlogic/aurora-module-gmail-connector": "~0.10.0",
 		"afterlogic/aurora-module-webclient-rocketchat": "~0.10.0",
-		"aws/aws-sdk-php": "3.178.6"
+		"afterlogic/aurora-module-mail-scheduled-messages": "~0.10.0",
+		"afterlogic/aurora-module-standard-reset-password": "~0.10.0",
+		"afterlogic/aurora-module-webclient-security-settings": "~0.10.0",
+		"afterlogic/aurora-module-ip-allow-list": "~0.10.0"
 	},
 	"scripts": {
 		"post-install-cmd": "@pre-config",
@@ -137,5 +171,8 @@
 			"system/": ["type:aurora-framework"],
 			"dev/": ["type:aurora-dev-tools"]
 		}
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^1.9"
 	}
 }
