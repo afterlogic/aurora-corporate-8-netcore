@@ -59,6 +59,8 @@ function CHeaderView()
 	
 	this.mobileDevice = Browser.mobileDevice;
 	this.bShowMobileSwitcher = Browser.mobileDevice && Settings.AllowMobile;
+
+    this.isPinned = ko.observable(false);
 	
 	App.broadcastEvent('%ModuleName%::ConstructView::after', {'Name': this.ViewConstructorName, 'View': this});
 	
@@ -137,15 +139,8 @@ CHeaderView.prototype.switchToMobileVersion = function ()
 	}, this);
 };
 
-CHeaderView.prototype.switchToMobileVersion = function ()
-{
-    var self = this;
-
-    self.isPinned = ko.observable(false);
-
-    self.togglePin = function() {
-        self.isPinned(!self.isPinned());
-    };
-}
+CHeaderView.prototype.togglePin = function () {
+    this.isPinned(!this.isPinned());
+};
 
 module.exports = new CHeaderView();
