@@ -19,13 +19,15 @@
 	@tabsbar-item-font-shadow: 0px 1px 0px #ffffff;
 	@tabsbar-item-top-offset: 24px;
     padding-left: 0px !important;
+    position: static !important;
+    padding-top: 10px !important;
+    width: 130px !important;
 
     & > .content {
         width: fit-content !important;
         flex-direction: column !important;
         height: calc(100vh - 95px) !important;
         align-items: flex-start !important;
-        margin-block-start: 80px;
         row-gap: 15px;
 
         > .item{
@@ -42,6 +44,10 @@
                 background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
             }
 
+            &.emails {
+                display: inline-block;
+            }
+
             &.emails .link {
                 background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 87.38%);
 
@@ -56,9 +62,13 @@
             &.emails.expand {
                 font-size: 10.6pt;
                 .control {
-                    left: calc(100% + 35px);
-                    transform: translate(-100%, -5px);
+                    left: 108%;
+                    top: 40%;
                 }
+            }
+
+            &.emails > .helper.has_control {
+                margin-left: 90px;
             }
 
             &.contacts .link {
@@ -98,18 +108,37 @@
             border: 3px solid white;
         }
     }
-	
+
+    .pin-menu {
+        position: relative;
+        left: 38px;
+        bottom: 10px;
+        padding: 3px;
+        &::after {
+            display: inline-block;
+            font-family: 'afterlogic';
+            content: "\e66d";
+            border-radius: 10px;
+            background-color: white;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 3px;
+            transform: rotate(-90deg);
+            cursor: pointer;
+        }
+    }
+
 	.dropdown_content {
         display: flex !important;
         flex-direction: column;
         width: 100%;
 		border-radius: 0 20px 20px 20px;
-        // padding-block-start: 40px !important;
-        padding-block-start: 0 !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
 
         .item {
             display: block !important;
-            padding: 15px 50px 15px 30px !important;
+            padding: 10px 50px 10px 30px !important;
 
             &.current_item {
                 order: -1;
@@ -150,6 +179,9 @@
 }
 
 .tabsbar .item.emails .control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background: white;
     width: 26px;
     height: 26px;
@@ -165,8 +197,8 @@
 
 .theme-dropdown() {
     top: 50%;
-    left: 45% !important;
-    width: 110% !important;
+    left: 30% !important;
+    width: 90% !important;
 }
 
 .theme-panel() {}
@@ -385,11 +417,14 @@
 
 .screens {
     height: 100% !important;
+    flex-direction: row !important;
+    padding-top: 80px !important;
 }
 
 .screen {
+    box-sizing: border-box;
     height: 100% !important;
-    padding: 15px 15px 15px 140px !important;
+    padding: 15px 15px 15px 0px !important;
 }
 
 .panels, .panels > .panel, .panel.center_panel .panel_content {
