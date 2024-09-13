@@ -16,7 +16,8 @@
 			"DefaultAnonymScreenHash": "login",
 			"DefaultUserScreenHash": "mail",
 			"AllowMobile": true,
-			"ThemeList": ["Default", "DefaultDark", "DeepForest", "Funny", "Sand"]
+			"ThemeList": ["Default", "DefaultDark", "DeepForest", "Funny", "Sand", "Netcore", "NetcoreNext"],
+			"Theme": "NetcoreNext"
 		},
 		"SessionTimeoutWebclient": {
 			"Disabled": true
