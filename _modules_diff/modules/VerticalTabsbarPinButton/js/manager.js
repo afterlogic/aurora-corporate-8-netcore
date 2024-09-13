@@ -1,11 +1,12 @@
 'use strict';
+const $ = require('jquery')
 
 module.exports = function () {
   return {
     start: function () {
       setTimeout(function () {
-        const tabsbarContent = $('.screens > .tabsbar > .content');
         const tabsbar = $('.screens > .tabsbar');
+        const tabsbarContent = $('.screens > .tabsbar > .content');
 
         if (tabsbarContent.length === 0 || tabsbar.length === 0) {
           console.error('Could not find elements tabsbar or tabsbar content');
