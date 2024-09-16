@@ -12,6 +12,8 @@
 @tabsbar-item-left-padding: 8px;
 @tabsbar-dropdown-left-offset: 80px;
 @tabsbar-dropdown-left-padding: 30px;
+@tabsbar-item-inline-padding: 10px;
+@tabsbar-item-right-padding: 12px;
 
 .theme-main-background() {
 	background: linear-gradient(90deg, #786ee2 0%, #bb4fef 87.38%);
@@ -31,14 +33,19 @@
     & > .content {
         width: fit-content !important;
         flex-direction: column !important;
+        flex-wrap: nowrap !important;
         height: calc(100vh - 95px) !important;
         align-items: flex-start !important;
         row-gap: 15px;
 
         > .item{
-            padding-inline-start: @tabsbar-item-left-padding !important;
+            padding-left: @tabsbar-item-left-padding !important;
+            padding-right: @tabsbar-item-right-padding !important;
 
             .link {
+                padding: 3px;
+                display: flex;
+                align-items: center;
                 font-size: 0;
                 box-sizing: border-box;
                 width: 64px;
@@ -55,6 +62,7 @@
             }
 
             &.emails .link {
+                display: inline-block;
                 background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 87.38%);
 
                 .text {
@@ -145,6 +153,7 @@
         }
 
         .item.current .link {
+            padding: 0;
             border: 3px solid white;
         }
     }
@@ -175,22 +184,25 @@
             display: block;
             line-height: 1;
             font-size: 24px;
+            font-weight: normal;
             color: white;
             position: relative;
-            left: calc(100% + 10px);
-            top: 50%;
-            transform: translateY(-50%);
+            left: calc(100% + @tabsbar-item-right-padding);
         }
 
         & > .content > .item.emails > .link > .text{
             width: fit-content;
             max-width: 130px;
-            left: calc(100% + 35px);
+            left: calc(100% + @tabsbar-item-right-padding);
             font-weight: 400;
             line-height: normal;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        & > .content > .item.emails.has_control > .link > .text{
+            left: calc(100% + 30px);
         }
 
         & > .content > .item.emails.expand > .link > .text {
@@ -224,7 +236,7 @@
 	
 	.theme-tabsbar-item() {
 		margin: 0px;
-		padding: 4px 10px;
+		padding: 4px @tabsbar-item-left-padding @tabsbar-item-right-padding;
 		
 		html.rtl & {
 			margin-left: 0px;
@@ -254,11 +266,11 @@
 
 .tabsbar .item.emails .control {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 6px);
     transform: translateY(-50%);
     background: white;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 
