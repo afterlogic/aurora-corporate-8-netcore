@@ -18,7 +18,6 @@ module.exports = function (oAppData) {
 
 	Settings.init(oAppData);
     const isDisplayNotesButtonEnabled = Settings.DisplayNotesButton
-    console.log('settings: ', isDisplayNotesButtonEnabled)
 
     const headerItem = require("modules/%ModuleName%/js/views/HeaderItemVue.js");
     const itemToReturn = {

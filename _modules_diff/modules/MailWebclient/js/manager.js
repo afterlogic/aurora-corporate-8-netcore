@@ -1,147 +1,286 @@
 'use strict';
 
 module.exports = function (oAppData) {
-	const
+	require('modules/%ModuleName%/js/enums.js');
+
+	var
 		_ = require('underscore'),
 		ko = require('knockout'),
-		
-		TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
-				
-		App = require('%PathToCoreWebclientModule%/js/App.js'),
 
-        ModulesManager = require("%PathToCoreWebclientModule%/js/ModulesManager.js"),
+		App = require('%PathToCoreWebclientModule%/js/App.js'),
+		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
+
 		Settings = require('modules/%ModuleName%/js/Settings.js'),
 
-		sNotesName = 'Notes'
-    ;
-	let	sNotesFullName = sNotesName;
+		AccountList = null,
+		ComposeView = null,
+
+		HeaderItemView = null
+	;
 
 	Settings.init(oAppData);
-    const isDisplayNotesButtonEnabled = Settings.DisplayNotesButton
 
-    const headerItem = require("modules/%ModuleName%/js/views/HeaderItemVue.js");
-    const itemToReturn = {
-        item: headerItem,
-        name: sNotesName,
-    }
-
-    function getHeaderItemFullName() {
-        try {
-            const URL_FRAGMENT = "#";
-            const { HashModuleName } = ModulesManager.run("MailWebclient", "getSettings");
-            const accountHash = ModulesManager.run("MailWebclient", "getAccountList").getCurrent().hash();
-            return `${URL_FRAGMENT}${HashModuleName}/${accountHash}/${sNotesFullName}`;
-        } catch (error) {
-            return null;
-        }
-    }
-	
-	function SetNotesFolder(koFolderList) {
-        const sNameSpace = koFolderList().sNamespaceFolder;
-        const sDelimiter = koFolderList().sDelimiter;
-    
-		if (sNameSpace !== '') {
-			sNotesFullName = sNameSpace + sDelimiter + sNotesName;
-		}
-		else {
-			sNotesFullName = sNotesName;
-		}
-		const oNotesFolder = koFolderList().getFolderByFullName(sNotesFullName);
-		if (oNotesFolder){
-			oNotesFolder.displayName = ko.observable(TextUtils.i18n('%MODULENAME%/LABEL_FOLDER_NOTES'));
-			oNotesFolder.usedAs = ko.observable(TextUtils.i18n('%MODULENAME%/LABEL_USED_AS_NOTES'));
-		}
+	if (!ModulesManager.isModuleAvailable(Settings.ServerModuleName))
+	{
+		return null;
 	}
-	
-	if (App.isUserNormalOrTenant()) {
-        const moduleExports = {
-			start: function (oModulesManager) {
-				$('html').addClass('MailNotesPlugin');
-                const mailCache = ModulesManager.run("MailWebclient", "getMailCache");
-                SetNotesFolder(mailCache.folderList);
 
-                mailCache.folderList.subscribe(() => {
-                    const fullName = getHeaderItemFullName();
-                    if (fullName) {
-                        headerItem.hash(fullName);
-                    }
-                });
-				App.subscribeEvent('MailWebclient::ConstructView::before', function (oParams) {
-					if (oParams.Name === 'CMailView')
-					{
-						const
-							koFolderList = oParams.MailCache.folderList,
-							koCurrentFolder = ko.computed(function () {
-								return oParams.MailCache.folderList().currentFolder();
-							}),
-							CMessagePaneView = require('modules/%ModuleName%/js/views/CMessagePaneView.js'),
-							oMessagePane = new CMessagePaneView(oParams.MailCache, _.bind(oParams.View.routeMessageView, oParams.View))
+	AccountList = require('modules/MailWebclient/js/AccountList.js');
+
+	if (App.isUserNormalOrTenant())
+	{
+		var Cache = require('modules/%ModuleName%/js/Cache.js');
+		Cache.init();
+
+		if (App.isNewTab())
+		{
+			var GetComposeView = function() {
+				if (ComposeView === null)
+				{
+					var CComposeView = require('modules/%ModuleName%/js/views/CComposeView.js');
+					ComposeView = new CComposeView();
+				}
+				return ComposeView;
+			};
+
+			return {
+				start: function () {
+					require('modules/%ModuleName%/js/koBindings.js');
+				},
+				getScreens: function () {
+					var oScreens = {};
+					oScreens[Settings.HashModuleName + '-view'] = function () {
+						return require('modules/%ModuleName%/js/views/MessagePaneView.js');
+					};
+					oScreens[Settings.HashModuleName + '-compose'] = function () {
+						return GetComposeView();
+					};
+					return oScreens;
+				},
+				registerComposeToolbarController: function (oController) {
+					var ComposeView = GetComposeView();
+					ComposeView.registerToolbarController(oController);
+				},
+				registerComposeMessageRowController: function (oController) {
+					var ComposeView = GetComposeView();
+					ComposeView.registerMessageRowController(oController);
+				},
+				registerComposeUploadAttachmentsController: function (controller) {
+					const ComposeView = GetComposeView();
+					ComposeView.registerUploadAttachmentsController(controller);
+				},
+				getComposeMessageWithData: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageWithData : false;
+				},
+				getComposeMessageToAddresses: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageToAddresses : false;
+				},
+				getComposeMessageWithAttachments: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageWithAttachments : false;
+				},
+				getSearchMessagesInCurrentFolder: function () {
+					var MainTab = window.opener && window.opener.MainTabMailMethods;
+					return MainTab ? _.bind(MainTab.searchMessagesInCurrentFolder, MainTab) : false;
+				},
+				getCurrentMessage: function () {
+					return Cache.currentMessage();
+				},
+				getCurrentFolderList: function () {
+					return Cache.folderList();
+				},
+				syncFolders: function () {
+					return Cache.getFolderList(Cache.currentAccountId());
+				},
+				removeMessageFromCurrentList: function (iAccountId, sFolder, sUid) {
+					return Cache.removeMessageFromCurrentList(iAccountId, sFolder, sUid);
+				}
+			};
+		}
+		else
+		{
+			var oMethods = {
+				enableModule: ko.observable(Settings.AllowAddAccounts || AccountList.hasAccount() ),
+				getComposeMessageToAddresses: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageToAddresses : false;
+				},
+				getComposeMessageWithData: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageWithData : false;
+				},
+				getComposeMessageWithAttachments: function () {
+					var
+						bAllowSendMail = true,
+						ComposeUtils = require('modules/%ModuleName%/js/utils/Compose.js')
+					;
+					return bAllowSendMail ? ComposeUtils.composeMessageWithAttachments : false;
+				},
+				getPrefetcher: function () {
+					return require('modules/%ModuleName%/js/Prefetcher.js');
+				},
+				registerComposeToolbarController: function (oController) {
+					var ComposePopup = require('modules/%ModuleName%/js/popups/ComposePopup.js');
+					ComposePopup.registerToolbarController(oController);
+				},
+				registerComposeMessageRowController: function (oController) {
+					var ComposePopup = require('modules/%ModuleName%/js/popups/ComposePopup.js');
+					ComposePopup.registerMessageRowController(oController);
+				},
+				registerComposeUploadAttachmentsController: function (controller) {
+					const ComposePopup = require('modules/%ModuleName%/js/popups/ComposePopup.js');
+					ComposePopup.registerUploadAttachmentsController(controller);
+				},
+				getSearchMessagesInInbox: function () {
+					return _.bind(Cache.searchMessagesInInbox, Cache);
+				},
+				getFolderHash: function (sFolder) {
+					return Cache.getFolderHash(sFolder);
+				},
+				getSearchMessagesInCurrentFolder: function () {
+					return _.bind(Cache.searchMessagesInCurrentFolder, Cache);
+				},
+				getMessage: function (sFullName, sUid, fResponseHandler) {
+					return Cache.getMessage(Cache.currentAccountId(), sFullName, sUid, fResponseHandler, Cache);
+				},
+				getCurrentMessage: function () {
+					return Cache.currentMessage();
+				},
+				getCurrentFolderList: function () {
+					return Cache.folderList();
+				},
+				syncFolders: function () {
+					return Cache.getFolderList(Cache.currentAccountId());
+				},
+				removeMessageFromCurrentList: function (iAccountId, sFolder, sUid) {
+					return Cache.removeMessageFromCurrentList(iAccountId, sFolder, sUid);
+				},
+				deleteMessages: function (iAccountId, sFolderFullName, aUids) {
+					var oFolder = Cache.getFolderByFullName(iAccountId, sFolderFullName);
+					Cache.deleteMessagesFromFolder(oFolder, aUids);
+				},
+				getAllAccountsFullEmails: function () {
+					return AccountList.getAllFullEmails();
+				},
+				getAccountList: function () {
+					return AccountList;
+				},
+				getMailCache: function () {
+					return Cache;
+				},
+                getSettings: function () {
+                    return Settings;
+                },
+				setCustomRouting: function (sFolder, iPage, sUid, sSearch, sFilters, sCustom) {
+					var
+						Routing = require('%PathToCoreWebclientModule%/js/Routing.js'),
+						LinksUtils = require('modules/%ModuleName%/js/utils/Links.js')
+					;
+					Routing.setHash(LinksUtils.getMailbox(sFolder, iPage, sUid, sSearch, sFilters, Settings.MessagesSortBy.DefaultSortBy, Settings.MessagesSortBy.DefaultSortOrder, sCustom));
+				}
+			};
+
+			if (!App.isMobile())
+			{
+				oMethods = _.extend(oMethods, {
+					start: function (ModulesManager) {
+						var
+							TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
+							Browser = require('%PathToCoreWebclientModule%/js/Browser.js'),
+							MailUtils = require('modules/%ModuleName%/js/utils/Mail.js')
 						;
-						SetNotesFolder(koFolderList);
-						koFolderList.subscribe(function () {
-							SetNotesFolder(koFolderList);
-						});
-						koCurrentFolder.subscribe(function () {
-							const sFullName = koCurrentFolder() ? koCurrentFolder().fullName() : '';
-							if (sFullName === sNotesFullName)
-							{
-								oParams.View.setCustomPreviewPane('%ModuleName%', oMessagePane);
-								oParams.View.setCustomBigButton('%ModuleName%', function () {
-									oModulesManager.run('MailWebclient', 'setCustomRouting', [sFullName, 1, '', '', '', 'create-note']);
-								}, TextUtils.i18n('%MODULENAME%/ACTION_NEW_NOTE'));
-								oParams.View.resetDisabledTools('%ModuleName%', ['spam', 'move', 'mark']);
-							}
-							else
-							{
-								oParams.View.removeCustomPreviewPane('%ModuleName%');
-								oParams.View.removeCustomBigButton('%ModuleName%');
-								oParams.View.resetDisabledTools('%ModuleName%', []);
-							}
-						});
+
+						require('modules/%ModuleName%/js/koBindings.js');
+						require('modules/%ModuleName%/js/koBindingSearchHighlighter.js');
+
+						if (Settings.AllowAppRegisterMailto)
+						{
+							MailUtils.registerMailto(Browser.firefox);
+						}
+
+						if (Settings.AllowAddAccounts || AccountList.hasAccount())
+						{
+							ModulesManager.run('SettingsWebclient', 'registerSettingsTab', [
+								function () {
+									return require('modules/%ModuleName%/js/views/settings/MailSettingsFormView.js');
+								},
+								Settings.HashModuleName,
+								TextUtils.i18n('%MODULENAME%/LABEL_SETTINGS_TAB')
+							]);
+
+							var sTabName = Settings.AllowMultiAccounts ? TextUtils.i18n('%MODULENAME%/LABEL_ACCOUNTS_SETTINGS_TAB') : TextUtils.i18n('%MODULENAME%/LABEL_ACCOUNT_SETTINGS_TAB');
+							ModulesManager.run('SettingsWebclient', 'registerSettingsTab', [
+								function () {
+									return require('modules/%ModuleName%/js/views/settings/AccountsSettingsPaneView.js');
+								},
+								Settings.HashModuleName + '-accounts',
+								sTabName
+							]);
+						}
+
+						ko.computed(function () {
+							var
+								aAuthAcconts = _.filter(AccountList.collection(), function (oAccount) {
+									return oAccount.useToAuthorize();
+								}),
+								aAuthAccountsEmails = _.map(aAuthAcconts, function (oAccount) {
+									return oAccount.email();
+								})
+							;
+							Settings.userMailAccountsCount(aAuthAcconts.length);
+							Settings.mailAccountsEmails(aAuthAccountsEmails);
+						}, this);
+					},
+					getScreens: function () {
+						var oScreens = {};
+						oScreens[Settings.HashModuleName] = function () {
+							var CMailView = require('modules/%ModuleName%/js/views/CMailView.js');
+							return new CMailView();
+						};
+						return oScreens;
+					},
+					getHeaderItem: function () {
+						if (HeaderItemView === null && Settings.AllowOtherModulesToReplaceTabsbarHeader) {
+							let params = {};
+							App.broadcastEvent('%ModuleName%::GetHeaderItemView', params);
+							HeaderItemView = params.HeaderItemView || null;
+						}
+
+						if (HeaderItemView === null) {
+							HeaderItemView = require('modules/%ModuleName%/js/views/HeaderItemView.js');
+						}
+
+						return {
+							item: HeaderItemView,
+							name: Settings.HashModuleName
+						};
+					},
+					getMobileSyncSettingsView: function () {
+						return require('modules/%ModuleName%/js/views/DefaultAccountHostsSettingsView.js');
 					}
 				});
-				App.subscribeEvent('MailWebclient::ConstructView::after', function (oParams) {
-					if (oParams.Name === 'CMessageListView' && oParams.MailCache)
-					{
-						const
-							koCurrentFolder = ko.computed(function () {
-								return oParams.MailCache.folderList().currentFolder();
-							})
-						;
-						koCurrentFolder.subscribe(function () {
-							const sFullName = koCurrentFolder() ? koCurrentFolder().fullName() : '';
-							if (sFullName === sNotesFullName)
-							{
-								oParams.View.customMessageItemViewTemplate('%ModuleName%_MessageItemView');
-							}
-							else
-							{
-								oParams.View.customMessageItemViewTemplate('');
-							}
-						});
-					}
-				});
-				App.subscribeEvent('MailWebclient::MessageDblClick::before', _.bind(function (oParams) {
-					if (oParams.Message && oParams.Message.folder() === sNotesFullName)
-					{
-						oParams.Cancel = true;
-					}
-				}, this));
-			},
-        }
-        if (isDisplayNotesButtonEnabled) {
-            moduleExports.getHeaderItem = function () {
-                try {
-                    const fullName = getHeaderItemFullName();
-                    headerItem.baseHash(fullName);
-                    return itemToReturn;
-                } catch (error) {
-                    return null;
-                }
-            };
-        }
-        return moduleExports;
+			}
+
+			return oMethods;
+		}
 	}
-	
+
 	return null;
 };
