@@ -43,6 +43,7 @@
             padding-right: @tabsbar-item-right-padding !important;
 
             .link {
+                position: relative;
                 padding: 3px;
                 display: flex;
                 align-items: center;
@@ -54,6 +55,19 @@
                 border-radius: 20px;
                 margin-inline-start: 30px;
                 background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    width: 55px;
+                    height: 55px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                    background-size: cover !important;
+                }
             }
 
             &.emails {
@@ -64,6 +78,10 @@
             &.emails .link {
                 display: inline-block;
                 background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 87.38%);
+
+                &::before {
+                    background-image: url("./images/mail.svg");
+                }
 
                 .text {
                     display: none;
@@ -121,14 +139,42 @@
 
             &.contacts .link {
                 background: #4faef9;
+
+                &::before {
+		            background-image: url("./images/contacts.svg") !important;
+                }
             }
             
             &.calendar .link {
                 background: #ed7989;
+
+                &::before {
+                    background-image: url("./images/calendar.svg") !important;
+                }
             }
 
             &.files .link {
                 background: #49a1f8;
+
+                &::before {
+		            background-image: url("./images/files.svg") !important;
+                }
+            }
+
+            &.tasks .link {
+		        background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
+
+                &::before {
+                    background-image: url("./images/tasks.svg");
+                }
+            }
+
+            &.notes .link {
+                background: linear-gradient(180deg, #f5e849 0%, #f6c163 87.38%);
+
+                &::before {
+                    background-image: url("./images/notes.svg");
+                }
             }
 
             &.settings {
@@ -154,7 +200,6 @@
         }
 
         .item.current .link {
-            padding: 0;
             border: 3px solid white;
         }
     }
