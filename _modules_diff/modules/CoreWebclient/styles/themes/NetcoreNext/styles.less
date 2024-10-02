@@ -117,6 +117,9 @@
                 .dropdown {
                     position: relative !important;
                     top: -50px;
+                    left: @tabsbar-dropdown-left-offset !important;
+                    width: fit-content !important;
+                    min-width: 110% !important;
                 }
 
                 .dropdown_helper {
@@ -201,6 +204,10 @@
 
         .item.current .link {
             border: 3px solid white;
+            padding-right: 0;
+        }
+        .item.current.emails .link {
+            padding-top: 1px;
         }
     }
 
@@ -234,6 +241,7 @@
             color: white;
             position: relative;
             left: calc(100% + @tabsbar-item-right-padding);
+            text-shadow: none;
         }
 
         & > .content > .item.emails > .link > .text{
@@ -327,12 +335,7 @@
     }
 }
 
-.theme-dropdown() {
-    top: 50%;
-    left: @tabsbar-dropdown-left-offset !important;
-    width: fit-content !important;
-    min-width: 110% !important;
-}
+.theme-dropdown() {}
 
 .theme-panel() {}
 
@@ -558,6 +561,91 @@
     box-sizing: border-box;
     height: 100% !important;
     padding: 15px 15px 15px 0px !important;
+
+    &.MailLayout {
+        .center_panel {
+            position: static;
+            .toolbar {
+                position: relative;
+            }
+        }
+    }
+
+    &.ContactsLayout .center_panel {
+        position: static;
+    }
+
+    &.FileStorageLayout .center_panel {
+        position: static;
+
+        .search_block {
+            width: 100% !important;
+        }
+    }
+
+    &.TasksLayout .panel.item_viewer {
+        position: static;
+    }
+}
+
+.search_block {
+    position: absolute;
+    top: 25px;
+    left: 30%;
+    height: unset !important;
+    z-index: 99;
+    max-width: 40%;
+    padding: 0 !important;
+
+    & > .input {
+        min-height: 48px !important;
+        padding-left: 40px !important;
+    }
+
+    & > .control {
+        position: relative;
+        left: -28px;
+        top: 11px;
+    }
+
+    & > .control > .icon::before,
+    & > .input > .icon.search::before {
+        color: #8d8a97 !important;
+        font-size: 20px !important;
+        font-weight: 600 !important;
+    }
+
+    & > .input > .icon.search {
+        left: 10px !important;
+        top: 8px !important;
+    }
+
+    & > .input > .icon.search::before {
+        font-size: 32px !important;
+        transform: scaleX(-1) translateX(-50%);
+    }
+
+    & > .input .field {
+        height: 40px !important;
+        line-height: 40px;
+        font-size: 13pt !important;
+    }
+}
+
+.MailLayout .center_panel .toolbar,
+.ContactsLayout .center_panel .toolbar {
+    padding-left: 20px;
+}
+
+.MailLayout .center_panel .middle_bar .panel_top,
+.ContactsLayout .center_panel .middle_bar .panel_top {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    & > .custom_checkbox {
+        position: absolute;
+        margin-top: -35px;
+    }
 }
 
 .panels, .panels > .panel, .panel.center_panel .panel_content {
@@ -565,14 +653,13 @@
 }
 
 .panels {
-    column-gap: 10px;
     .panel.center_panel .panel_content .toolbar{
         border-top-left-radius: @panel-border-radius !important;
         border-top-right-radius: @panel-border-radius !important;
     }
 
     .gutter {
-        display: none !important;
+        min-width: 10px;
     }
 }
 
