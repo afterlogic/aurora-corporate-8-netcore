@@ -76,7 +76,8 @@
 
             &.emails .link {
                 display: inline-block;
-                background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 87.38%);
+                // background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 100%);
+                background: linear-gradient(to top, #5b9dff, lighten(spin(#5b9dff, 20), 15%));
 
                 &::before {
                     background-image: url("./images/mail.svg");
@@ -142,6 +143,7 @@
 
             &.contacts .link {
                 background: #4faef9;
+                background: linear-gradient(to top, #62d8c3, lighten(spin(#62d8c3, 20), 15%));
 
                 &::before {
 		            background-image: url("./images/contacts.svg") !important;
@@ -150,6 +152,7 @@
             
             &.calendar .link {
                 background: #ed7989;
+                background: linear-gradient(to top, #ed7989, lighten(spin(#ed7989, 20), 15%));
 
                 &::before {
                     background-image: url("./images/calendar.svg") !important;
@@ -158,6 +161,7 @@
 
             &.files .link {
                 background: #49a1f8;
+                background: linear-gradient(to top, #49a1f8, lighten(spin(#49a1f8, 20), 15%));
 
                 &::before {
 		            background-image: url("./images/files.svg") !important;
@@ -165,7 +169,8 @@
             }
 
             &.tasks .link {
-		        background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
+		        // background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
+                background: linear-gradient(to top, #82B8FF, lighten(spin(#82B8FF, 20), 10%));
 
                 &::before {
                     background-image: url("./images/tasks.svg");
@@ -173,7 +178,8 @@
             }
 
             &.notes .link {
-                background: linear-gradient(180deg, #f5e849 0%, #f6c163 87.38%);
+                // background: linear-gradient(180deg, #f5e849 0%, #f6c163 87.38%);
+                background: linear-gradient(to top, #f6c163, lighten(spin(#f6c163, 20), 5%));
 
                 &::before {
                     background-image: url("./images/notes.svg");
