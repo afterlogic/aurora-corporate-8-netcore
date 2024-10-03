@@ -71,13 +71,13 @@
             }
 
             &.emails {
-                height: 60px;
+                display: inline-block;
+                height: 64px;
             }
 
             &.emails .link {
                 display: inline-block;
-                // background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 100%);
-                background: linear-gradient(to top, #5b9dff, lighten(spin(#5b9dff, 20), 15%));
+                background: linear-gradient(180deg, #84d7fb 0%, #6e90f7 87.38%);
 
                 &::before {
                     background-image: url("./images/mail.svg");
@@ -112,7 +112,6 @@
                     left: calc(@tabsbar-dropdown-left-offset + @tabsbar-dropdown-left-padding);
                     z-index: 9999;
                     padding-right: 50px;
-                    height: @tabsbar-dropdown-helper-height;
                 }
 
                 .dropdown {
@@ -143,7 +142,6 @@
 
             &.contacts .link {
                 background: #4faef9;
-                background: linear-gradient(to top, #62d8c3, lighten(spin(#62d8c3, 20), 15%));
 
                 &::before {
 		            background-image: url("./images/contacts.svg") !important;
@@ -152,7 +150,6 @@
             
             &.calendar .link {
                 background: #ed7989;
-                background: linear-gradient(to top, #ed7989, lighten(spin(#ed7989, 20), 15%));
 
                 &::before {
                     background-image: url("./images/calendar.svg") !important;
@@ -161,7 +158,6 @@
 
             &.files .link {
                 background: #49a1f8;
-                background: linear-gradient(to top, #49a1f8, lighten(spin(#49a1f8, 20), 15%));
 
                 &::before {
 		            background-image: url("./images/files.svg") !important;
@@ -169,8 +165,7 @@
             }
 
             &.tasks .link {
-		        // background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
-                background: linear-gradient(to top, #82B8FF, lighten(spin(#82B8FF, 20), 10%));
+		        background: linear-gradient(180deg, #82B8FF 0%, #6DADFE 87.38%);
 
                 &::before {
                     background-image: url("./images/tasks.svg");
@@ -178,8 +173,7 @@
             }
 
             &.notes .link {
-                // background: linear-gradient(180deg, #f5e849 0%, #f6c163 87.38%);
-                background: linear-gradient(to top, #f6c163, lighten(spin(#f6c163, 20), 5%));
+                background: linear-gradient(180deg, #f5e849 0%, #f6c163 87.38%);
 
                 &::before {
                     background-image: url("./images/notes.svg");
@@ -204,6 +198,51 @@
                 .link {
                     margin-left: 0;
                     background: linear-gradient(180deg, #EB85FB 0%, #AD4EF8 100%);
+                }
+            }
+
+            &.new_button_panel {
+                position: absolute;
+                top: 25px;
+                left: 134px;
+                padding: 0 !important;
+                text-shadow: none !important;
+
+                .helper {
+                    display: none;
+                }
+
+                .link {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    height: 48px;
+                    width: 236px;
+                }
+
+                .link::before {
+                    display: none;
+                }
+
+                .link::after {
+                    position: absolute;
+                    right: 107px;
+                    content: 'New';
+                    font-size: 20px;
+                    color: #fff;
+                }
+
+                .control {
+                    position: absolute;
+                    right: 81px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #fff;
+                }
+
+                .dropdown_content {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    column-count: 2;
                 }
             }
         }
@@ -283,7 +322,7 @@
         }
     }
 	
-	.dropdown_content {
+	.emails .dropdown_content {
         position: relative;
         width: 100%;
         left: 0;
@@ -318,20 +357,9 @@
 	}
 	
 	.theme-unseen-marker() {
-		background: #ff5fb5;
+		background: #888785;
 		color: #ffffff;
-		margin-top: -15px;
-		top: auto !important;
-        right: auto !important;
-        left: 58px;
-
-        border-radius: 25px !important;
-        font-size: 13px !important;
-        height: auto !important;
-        width: auto !important;
-        min-width: 1em;
-        line-height: 1.2 !important;
-        padding: 4px 5px 3px 5px;
+		top: -7px;
 	}
 }
 
