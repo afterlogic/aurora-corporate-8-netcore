@@ -1,8 +1,6 @@
 'use strict'
 
 module.exports = function (oAppData) {
-  const _ = require('underscore')
-  const ko = require('knockout')
   const App = require('%PathToCoreWebclientModule%/js/App.js')
 
   if (App.isUserNormalOrTenant()) {
@@ -12,7 +10,7 @@ module.exports = function (oAppData) {
 
         return {
           item: headerItem,
-          name: 'new_button_panel',
+          name: 'new_button_panel', // do we need this??
         }
       },
     }
