@@ -10,17 +10,34 @@ const CAbstractHeaderItemView = require('%PathToCoreWebclientModule%/js/views/CH
 function CHeaderItemView() {
   CAbstractHeaderItemView.call(this, TextUtils.i18n('%MODULENAME%/ACTION_SHOW_NEW_BUTTON'))
 
-  this.newItems = ko.observableArray([]);
+  this.newItemsColumn1 = ko.observableArray([])
+  this.newItemsColumn2 = ko.observableArray([])
 
   App.subscribeEvent('RegisterNewItemElement', (oItem) => {
-    const newItem = { sText: oItem.item.title, clickEvent: () => {
-        if(!oItem.item.hash) return;
-        if(window.location.hash !== oItem.item.hash) {
-            window.location.hash = oItem.item.hash;
+    const { item, order, column } = oItem
+    const { title, hash, handler } = item
+
+    const newItem = {
+      sText: title.charAt(0).toUpperCase() + title.slice(1).toLowerCase(),
+      clickEvent: () => {
+        if (!hash) return
+        if (window.location.hash !== hash) {
+          window.location.hash = hash
         }
-        setTimeout(oItem.item.handler, 300);
-    }};
-    this.newItems.push(newItem);
+        setTimeout(handler, 300)
+      },
+      hash,
+      order,
+      column
+    }
+
+    if (newItem.column === 1) {
+      this.newItemsColumn1.push(newItem)
+      this.newItemsColumn1.sort((a, b) => a.order - b.order)
+    } else if (newItem.column === 2) {
+      this.newItemsColumn2.push(newItem)
+      this.newItemsColumn2.sort((a, b) => a.order - b.order)
+    }
   })
 }
 
