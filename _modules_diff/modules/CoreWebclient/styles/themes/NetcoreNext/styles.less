@@ -268,6 +268,7 @@
                     background: #49a1f8;
                     border-radius: 11px;
                     box-shadow: 0px 0px 10px 0px #00000040;
+                    background: linear-gradient(to top, #f6c163, #f7f47b);
 
                     &::before {
                         position: absolute;
@@ -280,15 +281,31 @@
                         background-repeat: no-repeat !important;
                         background-position: center !important;
                         background-size: cover !important;
+                        background-image: url("./images/notes.svg") !important;
                     }
                 }
 
-                .dropdown_content .item_calendar .item_icon,
-                .dropdown_content .item_tasks .item_icon {
+                .dropdown_content .item_mail .item_icon {
+                    background: linear-gradient(to top, #5b9dff, #a8aeff);
+
+                    &::before {
+                        background-image: url("./images/mail.svg") !important;
+                    }
+                }
+
+                .dropdown_content .item_calendar .item_icon {
                     background: linear-gradient(to top, #ed7989, #f6c8bc);
 
                     &::before {
                         background-image: url("./images/calendar.svg") !important;
+                    }
+                }
+
+                .dropdown_content .item_tasks .item_icon {
+                    background: linear-gradient(to top, #82B8FF, #b5bcff);
+
+                    &::before {
+                        background-image: url("./images/tasks.svg") !important;
                     }
                 }
 
