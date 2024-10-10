@@ -14,19 +14,12 @@ function CHeaderItemView() {
   this.newItemsColumn2 = ko.observableArray([])
 
   App.subscribeEvent('RegisterNewItemElement', (oItem) => {
-    const { item, order, column } = oItem
-    const { title, hash, handler } = item
+    const { title, className, handler, order, column } = oItem
 
     const newItem = {
-      sText: title.charAt(0).toUpperCase() + title.slice(1).toLowerCase(),
-      clickEvent: () => {
-        if (!hash) return
-        if (window.location.hash !== hash) {
-          window.location.hash = hash
-        }
-        setTimeout(handler, 300)
-      },
-      hash,
+      sText: title,
+      clickEvent: handler,
+      className,
       order,
       column
     }

@@ -10,13 +10,13 @@
       <span class="dropdown_arrow"><span></span></span>
       <div class="dropdown_content">
         <div class="dropdown_first_column" data-bind="foreach: newItemsColumn1">
-          <div class="item" data-bind="click: clickEvent, attr: {'class': 'item item_' + hash.toLowerCase()}">
+          <div class="item" data-bind="click: clickEvent, attr: {'class': 'item ' + className}">
             <div class="item_icon"></div>
             <div class="item_text" data-bind="text: sText"></div>
           </div>
         </div>
         <div class="dropdown_second_column" data-bind="foreach: newItemsColumn2">
-          <div class="item" data-bind="click: clickEvent, attr: {'class': 'item item_' + hash.toLowerCase()}">
+          <div class="item" data-bind="click: clickEvent, attr: {'class': 'item ' + className}">
             <div class="item_icon"></div>
             <div class="item_text" data-bind="text: sText"></div>
           </div>
