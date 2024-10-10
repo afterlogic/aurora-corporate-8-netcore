@@ -39,8 +39,9 @@
 		}
 	],
 	"require": {
-"afterlogic/aurora-module-webclient-external-clients-login-form": "~0.10.0",
-"afterlogic/aurora-module-push-notificator": "~0.10.0",
+		"afterlogic/aurora-module-webclient-external-clients-login-form": "~0.10.0",
+		"afterlogic/aurora-module-push-notificator": "~0.10.0",
+		"afterlogic/aurora-module-webclient-editor-summernote": "~0.10.0",
 
 		"oomphinc/composer-installers-extender": "^2.0",
 		

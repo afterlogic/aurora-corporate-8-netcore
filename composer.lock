@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbb8896d22975e72116fcfb7d699e0ef",
+    "content-hash": "46a1b096c3b1135feba9d956d0fa5d3f",
     "packages": [
         {
             "name": "afterlogic/aurora-dev-tools",
@@ -1936,6 +1936,27 @@
                 ]
             },
             "time": "2024-04-12T07:20:07+00:00"
+        },
+        {
+            "name": "afterlogic/aurora-module-webclient-editor-summernote",
+            "version": "0.10.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote",
+                "reference": "tags/0.10.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote/archive/0.10.7.zip"
+            },
+            "require": {
+                "afterlogic/aurora-framework": "~0.10.0"
+            },
+            "type": "aurora-module",
+            "extra": {
+                "installer-name": "EditorSummernoteWebclient"
+            },
+            "time": "2023-07-07T12:40:51+00:00"
         },
         {
             "name": "afterlogic/aurora-module-webclient-external-clients-login-form",
