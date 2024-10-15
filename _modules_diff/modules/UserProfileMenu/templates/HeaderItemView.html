@@ -1,0 +1,15 @@
+<span
+  data-bind="attr: {'class': 'item ' + sName.toLowerCase()}, css: {'recivedAnim': recivedAnim}, dropdown: {control: false}"
+>
+  <span class="helper" data-bind="text: linkText"></span>
+  <a class="link" href="javascript: void(0);">
+    <span class="icon"></span>
+    <span class="text" data-bind="text: linkText"></span>
+  </a>
+  <div class="dropdown" data-bind="foreach: items">
+    <div data-bind="click: clickEvent, attr: {'class': 'dropdown_item ' + className}">
+      <span class="item_icon"></span>
+      <span data-bind="text: title" class="item_text"></span>
+    </div>
+  </div>
+</span>
