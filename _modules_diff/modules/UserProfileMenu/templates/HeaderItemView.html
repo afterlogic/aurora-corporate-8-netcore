@@ -2,14 +2,18 @@
   data-bind="attr: {'class': 'item ' + sName.toLowerCase()}, css: {'recivedAnim': recivedAnim}, dropdown: {control: false}"
 >
   <span class="helper" data-bind="text: linkText"></span>
-  <span class="link">
+  <a class="link">
     <span class="icon"></span>
     <span class="text" data-bind="text: linkText"></span>
-  </span>
-  <div class="dropdown" data-bind="foreach: items">
-    <div data-bind="click: clickEvent, attr: {'class': 'dropdown_item ' + className}">
-      <span class="item_icon"></span>
-      <span data-bind="text: title" class="item_text"></span>
+  </a>
+  <div class="dropdown">
+    <div class="dropdown_helper">
+      <div class="dropdown_content" data-bind="foreach: items">
+        <div data-bind="click: clickEvent, attr: {'class': 'item ' + className}">
+          <span class="item_icon"></span>
+          <span data-bind="text: title" class="item_text"></span>
+        </div>
+      </div>
     </div>
   </div>
 </span>

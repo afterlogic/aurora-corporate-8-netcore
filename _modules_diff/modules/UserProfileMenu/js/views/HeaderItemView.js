@@ -44,14 +44,14 @@ function CHeaderItemView() {
   this.items = [
     {
         title: TextUtils.i18n('COREWEBCLIENT/HEADING_SETTINGS_TABNAME'),
-        className: 'dropdown_item-settings',
+        className: 'item-settings',
         clickEvent: () => {
             window.location.hash = Settings.HashModuleName
         }
     },
     {
         title: TextUtils.i18n('COREWEBCLIENT/ACTION_LOGOUT'),
-        className: 'dropdown_item-logout',
+        className: 'item-logout',
         clickEvent: App.logout.bind(App)
     }
   ]
