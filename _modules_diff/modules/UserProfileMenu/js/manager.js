@@ -2,9 +2,13 @@
 
 module.exports = function () {
   const App = require('%PathToCoreWebclientModule%/js/App.js')
-  const Settings = require('modules/%ModuleName%/js/Settings.js')
+  const ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js')
 
-  if (App.isUserNormalOrTenant() && Settings.DisplayUserMenu) {
+  if (!ModulesManager.isModuleAvailable('SettingsWebclient')) {
+    return null
+  }
+
+  if (App.isUserNormalOrTenant()) {
     return {
       getHeaderItem: function () {
         return {
