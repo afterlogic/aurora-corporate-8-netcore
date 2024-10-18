@@ -25,20 +25,25 @@
 	@tabsbar-item-font-color-hover: darken(@tabsbar-item-font-color, 40%);
 	@tabsbar-item-font-shadow: 0px 1px 0px #ffffff;
 	@tabsbar-item-top-offset: 24px;
+    box-sizing: border-box;
     padding-left: 0px !important;
     position: static !important;
-    padding-top: 10px !important;
+    margin-top: 15px !important;
+    padding-top: 0 !important;
     width: 130px !important;
+    height: auto;
 
     & > .content {
+        transition: width .3s;
         width: 100% !important;
         flex-direction: column !important;
         flex-wrap: nowrap !important;
-        height: calc(100vh - 95px) !important;
+        height: calc(100vh - 84px) !important;
         align-items: flex-start !important;
         row-gap: 8px;
 
         > .item{
+            box-sizing: border-box;
             padding-left: @tabsbar-item-left-padding !important;
             padding-right: @tabsbar-item-right-padding !important;
 
@@ -71,7 +76,9 @@
             }
 
             &.emails {
+                width: 100%;
                 height: 60px;
+                padding-top: 0;
             }
 
             &.emails .link {
@@ -86,12 +93,13 @@
                     display: none;
                     position: relative;
                     left: 128%;
-                    top: 20%;
+                    top: 27%;
                 }
             }
             
             &.emails.expand {
                 font-size: 10.6pt;
+                width: unset;
                 .control {
                     left: 120%;
                     top: 35%;
@@ -332,7 +340,7 @@
     .pin-menu {
         position: relative;
         left: 38px;
-        bottom: -18px;
+        bottom: -3px;
         padding: 3px;
         &::after {
             display: inline-block;
@@ -348,9 +356,8 @@
         }
     }
 
-    &.pinned-tabs-bar {
-        width: 280px !important;
-
+    &.pinned-tabs-bar,
+    &:hover {
         & > .content > .item {
             &.emails,
             &.contacts,
@@ -394,13 +401,23 @@
         & > .content > .item.logout > .link > .text {
             font-size: 0 !important;
         }
+    }
 
+    &.pinned-tabs-bar {
+        width: 280px !important;
         .pin-menu {
             position: relative;
             left: 220px;
             &::after {
                 transform: rotate(90deg);
             }
+        }
+    }
+
+    &:hover {
+        & > .content {
+            width: 280px !important;
+            background: linear-gradient(90deg, #786ee2 0%, #bb4fef 100vw);
         }
     }
 	
