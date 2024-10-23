@@ -48,7 +48,8 @@
 			"PublicLinksEnabled": false
 		},
 		"Calendar": {
-			"AllowTasks": true
+			"AllowTasks": true,
+			"ShowTasksInCalendars": false
 		},
 		"OAuthIntegratorWebclient": {
 			"AllowNewUsersRegister": false
