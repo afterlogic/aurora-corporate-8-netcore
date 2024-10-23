@@ -6,7 +6,9 @@
 @theme-animation-highlight-color-start: rgba(255, 255, 196, 1);
 @theme-animation-highlight-color-end: rgba(255, 255, 196, 0);
 
-@theme-use-text-fade: true;
+@theme-text-color: #424040;
+
+@theme-use-text-fade: false;
 
 @tabsbar-dropdown-helper-height: 21px;
 @tabsbar-item-left-padding: 8px;
@@ -560,24 +562,46 @@
 
 .theme-clear-left-panel() {
 	background: @theme-background-color;
+
+    .items_list .item {
+        margin-right: 24px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .items_list .item > .title {
+        color: @theme-text-color;
+        text-shadow: none !important;
+        padding-top: 13px;
+        padding-bottom: 15px;
+    }
+
+    .items_list .item.selected > .title {
+        color: #fff;
+        font-weight: 700;
+        text-shadow: none !important;
+    }
 }
 
 .theme-left-panel-item-count() {}
 
 .theme-left-panel-item-count-total() {
-	color: #777777;
+    margin-right: 16px !important;
+    font-size: 12px;
+    padding: 4px 13px 2px;
+	color: @theme-text-color;
+    border-radius: 12px;
+    border: 1px solid @theme-text-color;
 }
 
 .theme-left-panel-item-selected-count-total() {
-	background: #327cc2;
-	border-radius: 11px;
-	box-shadow: 0px 1px 1px #2965b7 inset, 0px 1px 0px rgba(255, 255, 255, 0.3);
+    border-color: white;;
 	color: white;
 }
 
 .theme-left-panel-item-selected-count() {
-	background: #327cc2;
-	box-shadow: 0px 1px 1px #2965b7 inset, 0px 1px 0px rgba(255,255,255,0.3);
+	// background: #327cc2;
+	// box-shadow: 0px 1px 1px #2965b7 inset, 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 .theme-left-panel-item-count-hover() {
@@ -595,8 +619,8 @@
 @theme-list-unseen-item-bg: #f4f6f7;
 
 @theme-group-style-item-bg: @theme-background-color;
-@theme-group-style-selected-item-bg-color: #95bada;
-@theme-group-style-selected-item-bg: #95bada;
+@theme-group-style-selected-item-bg-color: #469CF8;
+@theme-group-style-selected-item-bg: #469CF8;
 @theme-group-style-item-font-size: 12pt;
 
 .theme-group-style-selected-item() {
@@ -699,7 +723,7 @@
 	color: #929292 !important;
 }
 
-@panel-border-radius: 10px;
+@panel-border-radius: 14px;
 
 .login_panel .header .icon:before {
 	color: lighten(#519ce2, 10%) !important;
@@ -836,6 +860,10 @@
         .panel_content {
             width: fit-content;
         }
+    }
+
+    .panel.navigation_panel {
+        width: 17% !important;
     }
 }
 
