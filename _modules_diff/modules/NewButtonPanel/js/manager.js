@@ -6,6 +6,7 @@ module.exports = function (oAppData) {
   if (App.isUserNormalOrTenant()) {
     return {
       getHeaderItem: function () {
+        require('modules/%ModuleName%/js/HeaderItemEvents.js')
         const headerItem = require('modules/%ModuleName%/js/views/HeaderItemView.js')
 
         return {

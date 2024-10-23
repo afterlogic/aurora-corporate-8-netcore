@@ -11,6 +11,7 @@ module.exports = function () {
   if (App.isUserNormalOrTenant()) {
     return {
       getHeaderItem: function () {
+        require('modules/%ModuleName%/js/HeaderItemEvents.js')
         return {
           item: require('modules/%ModuleName%/js/views/HeaderItemView.js'),
           name: 'usermenu',
