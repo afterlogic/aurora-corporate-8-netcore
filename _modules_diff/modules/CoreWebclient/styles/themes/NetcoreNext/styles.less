@@ -197,7 +197,7 @@
             &.new_button_panel {
                 position: absolute;
                 top: 12px;
-                left: 134px;
+                left: 99px;
                 padding: 0 !important;
                 text-shadow: none !important;
                 z-index: 3100;
@@ -585,25 +585,25 @@
     }
 }
 
-.theme-left-panel-item-count() {}
-
-.theme-left-panel-item-count-total() {
+.theme-left-panel-item-count() {
     margin-right: 16px !important;
+    padding: 4px 13px 2px !important;
     font-size: 12px;
-    padding: 4px 13px 2px;
-	color: @theme-text-color;
     border-radius: 12px;
     border: 1px solid @theme-text-color;
+    color: @theme-text-color !important;
 }
 
+.theme-left-panel-item-count-total() {}
+
 .theme-left-panel-item-selected-count-total() {
-    border-color: white;;
-	color: white;
+    border-color: white;
+	color: white !important;
 }
 
 .theme-left-panel-item-selected-count() {
-	// background: #327cc2;
-	// box-shadow: 0px 1px 1px #2965b7 inset, 0px 1px 0px rgba(255,255,255,0.3);
+    border-color: white;
+    color: white !important;
 }
 
 .theme-left-panel-item-count-hover() {
@@ -657,10 +657,10 @@
 	@tooltip-color: #424e54;
 }
 
-@theme-volumer-container-background: #f1f2f3;
-@theme-volumer-container-border: 1px solid #888888;
-@theme-volumer-container-border-radius: 0;
-@theme-volumer-used-background: #668eb8;
+@theme-volumer-container-background: #DDDDDD;
+@theme-volumer-container-border: none;
+@theme-volumer-container-border-radius: 24px;
+@theme-volumer-used-background: #469CF8;
 @theme-volumer-text: #4477bb;
 
 @theme-attachment-action-link-color: #4477bb;
@@ -682,6 +682,19 @@
 
 @theme-section-title-color: #777777;
 @theme-section-title-text-shadow: 0px 1px 0px #ffffff;
+
+.volumer {
+    padding: 0 25px !important;
+}
+
+.volumer .volumer_conteiner {
+    padding: 0 !important;
+}
+
+.volumer .used {
+    height: 8px !important;
+    border-radius: @theme-volumer-container-border-radius;
+}
 
 .files .attachments .item.file .item_content,
 .message_viewer .attachments .item .item_content {
@@ -769,10 +782,18 @@
     }
 }
 
+.panels > .left_panel > .panel_content {
+    padding-top: 10px;
+
+    & > .big_single_button {
+        display: none;
+    }
+}
+
 .search_block {
     position: absolute;
     top: 12px;
-    left: 30%;
+    left: max(320px, 30%);
     height: unset !important;
     z-index: 99;
     max-width: 40%;
@@ -844,6 +865,11 @@
     .panel.center_panel .panel_content .toolbar{
         border-top-left-radius: @panel-border-radius !important;
         border-top-right-radius: @panel-border-radius !important;
+    }
+
+    .panel.center_panel > .panel_content > .middle_bar > .panel_bottom {
+        border-bottom-left-radius: @panel-border-radius !important;
+        border-bottom-right-radius: @panel-border-radius !important;
     }
 
     .gutter {
