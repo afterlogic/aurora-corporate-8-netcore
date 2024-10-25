@@ -704,6 +704,10 @@
     & > .big_single_button {
         display: none;
     }
+
+    & > .middle_bar > .panel_center .items_list .folders:first-child {
+        border-bottom: 2px solid #DDDDDD;
+    }
 }
 
 .search_block {
@@ -777,6 +781,50 @@
     & > .custom_checkbox {
         position: absolute;
         margin-top: -35px;
+    }
+}
+
+.custom_checkbox {
+    border-radius: 1px;
+
+    &.checked {
+        span.icon {
+            border-color: @theme-group-style-selected-item-bg-color;
+            background: @theme-group-style-selected-item-bg-color !important;
+        }
+    }
+
+    & > span.icon {
+        border: 2px solid @theme-group-style-selected-item-bg-color !important;
+        color: white !important;
+        height: 12px !important;
+        line-height: 12px !important;
+        width: 12px !important;
+    }
+}
+
+
+.messages_panel .items_list .item {
+    .from, .date {
+        color: #8C8C96 !important;
+    }
+    .subject {
+        color: #7D7E87 !important;
+    }
+}
+
+.items_list .item.checked {
+    background-color: #F5FFED !important;
+}
+
+.items_list .item.selected {
+    background-color: #b5dbfd !important;
+}
+
+.items_list .item.unseen {
+    .from, .subject, .date {
+        color: @theme-text-color !important;
+        font-weight: normal;
     }
 }
 
