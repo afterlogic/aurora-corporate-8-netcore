@@ -1,0 +1,77 @@
+.tabsbar > .content {
+    transition: all 0.3s linear;
+    background: linear-gradient(90deg, #786ee2 0%, #bb4fef 100vw);
+}
+
+.tabsbar.tabsbar--pinned {
+    width: 280px !important;
+
+    .pin-menu {
+        position: relative;
+        left: 240px;
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.tabsbar.tabsbar--expanded {
+    & > .content {
+        width: 280px !important;
+    }
+}
+
+.tabsbar.tabsbar--pinned,
+.tabsbar.tabsbar--expanded {
+    & > .content > .item:not(.new_button_panel):not(.usermenu) .link > .text {
+        display: block;
+        line-height: 1;
+        font-size: 20px;
+        font-weight: normal;
+        color: white;
+        position: relative;
+        left: calc(100% + @tabsbar-item-right-padding);
+        text-shadow: none;
+    }
+
+    & > .content > .item.emails > .link > .text{
+        width: fit-content;
+        max-width: 180px;
+        left: calc(100% + @tabsbar-item-right-padding);
+        line-height: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    & > .content > .item.emails.has_control > .link > .text{
+        left: calc(100% + 30px);
+    }
+
+    & > .content > .item.emails.expand > .link > .text {
+        font-size: 0;
+    }
+
+    & > .content > .item.settings > .link > .text,
+    & > .content > .item.logout > .link > .text {
+        font-size: 0 !important;
+    }
+}
+
+.pin-menu {
+    position: relative;
+    left: 22px;
+    bottom: 0px;
+    &::after {
+        display: inline-block;
+        font-family: 'afterlogic';
+        content: "\e66d";
+        border-radius: 10px;
+        background-color: white;
+        font-weight: 600;
+        font-size: 20px;
+        padding: 3px;
+        transform: rotate(-90deg);
+        cursor: pointer;
+    }
+}

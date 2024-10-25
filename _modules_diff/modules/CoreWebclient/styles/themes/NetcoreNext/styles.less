@@ -36,7 +36,6 @@
     height: auto;
 
     & > .content {
-        transition: width .3s;
         width: 100% !important;
         flex-direction: column !important;
         flex-wrap: nowrap !important;
@@ -340,90 +339,6 @@
         }
     }
 
-    .pin-menu {
-        position: relative;
-        left: 22px;
-        bottom: 0px;
-        // padding: 3px;
-        &::after {
-            display: inline-block;
-            font-family: 'afterlogic';
-            content: "\e66d";
-            border-radius: 10px;
-            background-color: white;
-            font-weight: 600;
-            font-size: 20px;
-            padding: 3px;
-            transform: rotate(-90deg);
-            cursor: pointer;
-        }
-    }
-
-    &.pinned-tabs-bar,
-    &:hover {
-        & > .content > .item {
-            &.emails,
-            &.contacts,
-            &.calendar,
-            &.files,
-            &.tasks,
-            &.notes {
-                .link > .text {
-                    display: block;
-                    line-height: 1;
-                    font-size: 20px;
-                    font-weight: normal;
-                    color: white;
-                    position: relative;
-                    left: calc(100% + @tabsbar-item-right-padding);
-                    text-shadow: none;
-                }
-            }
-        }
-
-        & > .content > .item.emails > .link > .text{
-            width: fit-content;
-            max-width: 180px;
-            left: calc(100% + @tabsbar-item-right-padding);
-            font-weight: 400;
-            line-height: normal;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        & > .content > .item.emails.has_control > .link > .text{
-            left: calc(100% + 30px);
-        }
-
-        & > .content > .item.emails.expand > .link > .text {
-            font-size: 0;
-        }
-
-        & > .content > .item.settings > .link > .text,
-        & > .content > .item.logout > .link > .text {
-            font-size: 0 !important;
-        }
-    }
-
-    &.pinned-tabs-bar {
-        width: 280px !important;
-        .pin-menu {
-            position: relative;
-            left: 240px;
-            &::after {
-                transform: rotate(90deg);
-            }
-        }
-    }
-
-    &:hover {
-        & > .content {
-            width: 280px !important;
-            background: linear-gradient(90deg, #786ee2 0%, #bb4fef 100vw);
-        }
-    }
-	
 	.emails .dropdown_content {
         position: relative;
         width: 100%;

@@ -15,7 +15,7 @@ module.exports = function () {
 
         function updateTabsbarClass() {
           const isExpanded = localStorage.getItem('aurora_tabsbar_expanded') === 'true';
-          tabsbar.toggleClass('pinned-tabs-bar', isExpanded);
+          tabsbar.toggleClass('tabsbar--pinned', isExpanded);
         }
 
         if (localStorage.getItem('aurora_tabsbar_expanded') === null) {
@@ -31,6 +31,22 @@ module.exports = function () {
           updateTabsbarClass();
         });
         tabsbarContent.append(newEl);
+
+
+        $('.tabsbar').on('mouseenter', function () {
+            if (!$(this).hasClass('tabsbar--pinned')) {
+                $(this).addClass('tabsbar--expanded');
+            }
+        })
+        .on('mouseleave', function() {
+            if (!$(this).hasClass('tabsbar--pinned')) {
+                $(this).removeClass('tabsbar--expanded');
+            }
+        });
+
+        $('.tabsbar .item.usermenu, .tabsbar .item.new_button_panel').on('mouseenter', function (e) {
+            e.stopPropagation();
+        })
       }, 0);
     },
   };
