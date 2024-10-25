@@ -1,12 +1,10 @@
-<span
-  data-bind="attr: {'class': 'item ' + sName.toLowerCase()}, css: {'recivedAnim': recivedAnim}, dropdown: {control: false}"
->
+<span data-bind="attr: {'class': 'right item ' + sName.toLowerCase()}, css: {'recivedAnim': recivedAnim}, dropdown: {control: false, hover: true}">
   <span class="helper" data-bind="text: linkText"></span>
   <a class="link">
     <span class="icon"></span>
     <span class="text" data-bind="text: linkText"></span>
   </a>
-  <div class="dropdown">
+  <div class="dropdown dropdown_right">
     <div class="dropdown_helper">
       <div class="dropdown_content" data-bind="foreach: items">
         <div data-bind="click: clickEvent, attr: {'class': 'item ' + className}">

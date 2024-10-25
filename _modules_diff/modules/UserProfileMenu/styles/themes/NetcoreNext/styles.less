@@ -2,9 +2,8 @@
     &.usermenu {
         position: absolute;
         top: 10px;
-        right: 0;
+        right: 15px;
         padding: 0 !important;
-        padding-right: 15px !important;
 
         .link {
             border-radius: 100%;
@@ -25,28 +24,14 @@
             font-size: 26px;
             color: #fff;
         }
-
-        .dropdown {
-            min-width: 190px;
-            top: calc(100% + 4px);
-            left: unset;
-            right: 50px;
-            bottom: unset;
-        }
-
-        .dropdown_helper {
-            left: 0 !important;
+        
+        .dropdown_content {
             padding: 15px !important;
+            margin: 5px 0 0;
+            box-sizing: border-box;
             background: #fff;
             border-radius: 20px;
             box-shadow: 0px 0px 10px 0px #00000040;
-        }
-
-        .dropdown_content {
-            padding: 0 !important;
-            margin: 0 !important;
-            border: none !important;
-            box-shadow: none !important;
         }
 
         .item {
@@ -90,10 +75,5 @@
             font-size: 15px;
             letter-spacing: 0.25px;
         } 
-    }
-
-    &.settings,
-    &.logout {
-        display: none;
     }
 }
