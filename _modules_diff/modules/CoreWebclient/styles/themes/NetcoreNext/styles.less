@@ -689,6 +689,7 @@
 
 .volumer .volumer_conteiner {
     padding: 0 !important;
+    overflow: hidden;
 }
 
 .volumer .used {
@@ -844,7 +845,14 @@
 .MailLayout .center_panel .toolbar,
 .ContactsLayout .center_panel .toolbar {
     padding-left: 30px;
+    background: unset;
+    border-bottom: none;
 }
+
+.MailLayout .center_panel .toolbar .content .group > .item.control {
+    padding-left: 0;
+}
+
 
 .MailLayout .center_panel .middle_bar .panel_top,
 .ContactsLayout .center_panel .middle_bar .panel_top {
@@ -870,6 +878,45 @@
     .panel.center_panel > .panel_content > .middle_bar > .panel_bottom {
         border-bottom-left-radius: @panel-border-radius !important;
         border-bottom-right-radius: @panel-border-radius !important;
+    }
+
+    .panel.center_panel .panel_bottom {
+        background: #fff;
+        padding: 15px 20px;
+    }
+
+    .panel.center_panel .panel_bottom .pagination {
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    .panel.center_panel .panel_bottom .pagination .item {
+        color: #8C8C96;
+        font-size: 14px;
+        padding: 0 4px;
+
+        &:hover {
+            color: #333;
+        }
+
+        &.current {
+            background: #EFEFF1;
+            color: #000;
+            font-weight: 700;
+        }
+
+        &.first, &.prev, &.next, &.last {
+            color: #7D7E87;
+            padding: 0;
+        }
+
+        &.first {
+            margin-right: -5px;
+        }
+
+        &.last {
+            margin-left: -5px;
+        }
     }
 
     .gutter {
