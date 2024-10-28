@@ -803,6 +803,56 @@
     }
 }
 
+.ContactsLayout .center_panel .items_list.contact_list {
+    .item > .item_content {
+        display: flex;
+        align-items: center;
+    }
+
+    .item > .item_content > span.controls {
+        margin-right: 24px;
+    }
+
+    .item > .item_content > .data {
+        color: @theme-text-color;
+    }
+
+    .item > .item_content > .data > .name {
+        margin-bottom: 0;
+    }
+
+    .item > .item_content > .data > .email {
+        opacity: unset;
+        color: #8C8C96;
+    }
+
+    .item.noemail > .item_content > .data > .email {
+        color: #555;
+    }
+
+    .items_sub_list > .item.selected {
+        background-color: #EBF6FD !important;
+    }
+
+    .custom_checkbox  > span.icon {
+        width: 48px !important;
+        height: 48px !important;
+        line-height: 48px !important;
+        background: #D7EAFF;
+        border: none !important;
+        border-radius: 12px;
+    }
+
+    .custom_checkbox.checked > span.icon {
+        background: #D7EAFF !important;
+        color: @theme-group-style-selected-item-bg !important;
+
+        &::before {
+            font-size: 16px;
+        }
+    }
+}
+
 
 .messages_panel .items_list .item {
     .from, .date {
