@@ -50,7 +50,7 @@
 
             .link {
                 position: relative;
-                // padding: 3px;
+                padding: 3px; // Prevent link text shifting by applying a 3px border only to the current link
                 display: flex;
                 align-items: center;
                 font-size: 0;
@@ -814,6 +814,7 @@
     }
 
     .item > .item_content > .data {
+        flex-grow: 1;
         color: @theme-text-color;
     }
 
@@ -826,12 +827,17 @@
         color: #8C8C96;
     }
 
+    .item.noname > .item_content > .data > .name,
     .item.noemail > .item_content > .data > .email {
         color: #555;
     }
 
     .items_sub_list > .item.selected {
         background-color: #EBF6FD !important;
+    }
+
+    .custom_checkbox {
+        margin-right: 0;
     }
 
     .custom_checkbox  > span.icon {
@@ -907,6 +913,7 @@
         color: #8C8C96;
         font-size: 14px;
         padding: 0 4px;
+        border-radius: 2px;
 
         &:hover {
             color: #333;
