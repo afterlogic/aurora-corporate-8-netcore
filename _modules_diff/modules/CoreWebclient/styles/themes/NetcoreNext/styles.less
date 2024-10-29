@@ -803,6 +803,14 @@
     }
 }
 
+.ContactsLayout > .panels > .left_panel.groups_panel .panel_center .items_list {
+    & > div:not(.item) {
+        padding: 10px 0;
+        border-top: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+    }
+}
+
 .ContactsLayout .center_panel .items_list.contact_list {
     .item > .item_content {
         display: flex;
@@ -847,6 +855,16 @@
         background: #D7EAFF;
         border: none !important;
         border-radius: 12px;
+    }
+
+    .custom_checkbox:not(.checked) > span.icon {
+        &::before {
+            content: attr(data-initials);
+            color: #7D7E87;
+            font-weight: 700;
+            font-size: 16px;
+	        font-family: Arial, sans-serif;
+        }
     }
 
     .custom_checkbox.checked > span.icon {
