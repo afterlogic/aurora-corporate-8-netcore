@@ -612,6 +612,82 @@
     border-radius: @theme-volumer-container-border-radius;
 }
 
+.buttons .button {
+    padding: 7px 13px !important;
+    border-color: transparent !important;
+    border-radius: 6px !important;
+    background: #73C389 !important;
+
+    &.disabled {
+        color: #c0e2a5 !important;
+    }
+
+    &.contour_button {
+        border-color: @theme-group-style-selected-item-bg-color !important;
+        color: @theme-group-style-selected-item-bg-color !important;
+    }
+}
+
+.message_viewer {
+    .message_header {
+        background: unset !important;
+    }
+
+    .message_header .header_content .message_info_line .from {
+        background: #F9F9FA;
+        color: @theme-text-color;
+        font-weight: 400;
+        border-color: transparent;
+    }
+
+    .message_header .header_content .message_info_line .add_contact {
+        width: 10px;
+        height: 10px;
+        bottom: 8px;
+        right: 11px;
+
+        &::before {
+            content: '';
+            width: 2px;
+            background: #469CF8;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+        }
+
+        &::after {
+            content: '';
+            height: 2px;
+            background: #469CF8;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin-top: -1px;
+        }
+    }
+
+    .message_header .header_content .message_info_line .address_capsule {
+        border-radius: 24px;
+    }
+
+    .message_header .header_content .message_info_line .to_arrow {
+        font-size: 1.6em;
+        vertical-align: top !important;
+    }
+
+    .quick_reply {
+        background: #fff;
+    }
+
+    .quick_reply .row textarea {
+        border-radius: 12px;
+        background: @theme-center-bottom-panel-bg;
+    }
+}
+
 .files .attachments .item.file .item_content,
 .message_viewer .attachments .item .item_content {
 	background: #f7f7f7 !important;
@@ -877,6 +953,11 @@
     }
 }
 
+.panel.left_panel .panel_content .panel_bottom .manage_folders a {
+    font-size: 14px;
+    color: #3B81CC;
+}
+
 
 .messages_panel .items_list .item {
     .from, .date {
@@ -902,7 +983,9 @@
     }
 }
 
-.panels, .panels > .panel, .panel.center_panel .panel_content {
+.screen > .panels,
+.screen > .panels > .panel,
+.screen > .panels > .panel.center_panel .panel_content {
     border-radius: @panel-border-radius !important;
 }
 
