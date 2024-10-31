@@ -37,7 +37,8 @@
 			"XOriginatingIPHeaderName": ""
 		},
 		"MailWebclient": {
-			"AllowSearchMessagesBySubject": true
+			"AllowSearchMessagesBySubject": true,
+			"ShowEmailAsTabName": false
 		},
 		"ChangePasswordWebclient": {
 			"Disabled": true
