@@ -1,8 +1,8 @@
 @theme-background-color: #ece9e0;
 
 @theme-tabs-height: 70px;
-@theme-common-link-color: #4477bb;
-@theme-common-link-hover-color: #c74747;
+@theme-common-link-color: #469CF8;
+@theme-common-link-hover-color: #278cf7;
 @theme-animation-highlight-color-start: rgba(255, 255, 196, 1);
 @theme-animation-highlight-color-end: rgba(255, 255, 196, 0);
 
@@ -590,7 +590,7 @@
 @theme-settings-filter-link-color: #4477bb;
 
 @theme-quick-reply-bg: #fcfcfc;
-@theme-quick-reply-textarea-border: 1px solid #d7d7d7;
+@theme-quick-reply-textarea-border: none;
 
 @theme-center-top-panel-bg: #f8f8f8;
 @theme-center-bottom-panel-bg: #f8f8f8;
@@ -617,6 +617,7 @@
     border-color: transparent !important;
     border-radius: 6px !important;
     background: #73C389 !important;
+    text-shadow: none !important;
 
     &.disabled {
         color: #c0e2a5 !important;
@@ -633,11 +634,17 @@
         background: unset !important;
     }
 
-    .message_header .header_content .message_info_line .from {
-        background: #F9F9FA;
+    .message_header .header_content .message_info_line .address_capsule {
+        background: #EDEDED;
         color: @theme-text-color;
         font-weight: 400;
         border-color: transparent;
+        border-radius: 24px;
+
+        &.found_contact {
+            background: @theme-group-style-selected-item-bg;
+            color: #fff;
+        }
     }
 
     .message_header .header_content .message_info_line .add_contact {
@@ -649,7 +656,7 @@
         &::before {
             content: '';
             width: 2px;
-            background: #469CF8;
+            background: @theme-group-style-selected-item-bg;
             position: absolute;
             left: 50%;
             top: 0;
@@ -660,7 +667,7 @@
         &::after {
             content: '';
             height: 2px;
-            background: #469CF8;
+            background: @theme-group-style-selected-item-bg;
             position: absolute;
             top: 50%;
             left: 0;
@@ -669,22 +676,46 @@
         }
     }
 
-    .message_header .header_content .message_info_line .address_capsule {
-        border-radius: 24px;
-    }
-
     .message_header .header_content .message_info_line .to_arrow {
         font-size: 1.6em;
         vertical-align: top !important;
     }
 
-    .quick_reply {
-        background: #fff;
+    .panel_bottom {
+        border-top: none !important;
+        padding: 10px 0 !important;
     }
 
-    .quick_reply .row textarea {
-        border-radius: 12px;
+    .quick_reply {
         background: @theme-center-bottom-panel-bg;
+        margin: 0 12px;
+        padding: 0 0 0 16px;
+        border-radius: 12px;
+
+        .row {
+            margin: 10px 0;
+        }
+
+        .row textarea {
+            padding: 6px;
+            background: inherit;
+        }
+
+        .buttons {
+            margin: 0 !important;
+        }
+
+        &.active {
+            padding: 0 16px 16px 16px;
+
+            .row textarea {
+                height: 85px;
+            }
+
+            .buttons {
+                max-height: 32px !important;
+            }
+        }
     }
 }
 
@@ -965,6 +996,42 @@
     }
     .subject {
         color: #7D7E87 !important;
+    }
+}
+
+.messages_panel .items_list .item {
+    .item_content > .controls > .custom_checkbox {
+        position: relative;
+        top: 14px;
+    }
+
+    .flag {
+        position: absolute !important;
+        right: 16px;
+        bottom: 21px;
+    }
+
+    .subject {
+        margin-right: 50px;
+        text-overflow: ellipsis;
+    }
+
+    .data > .thread-pin {
+        margin: 0 20px 0 0 !important;
+    }
+
+    .data > .marker {
+        right: 35px;
+        top: 54%;
+        background: unset;
+
+        &::before {
+            content: "\e60c";
+            font-family: 'afterlogic';
+            font-size: 24px;
+            color: #c4c4c4;
+            font-weight: 600;
+        }
     }
 }
 
