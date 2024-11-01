@@ -330,6 +330,7 @@
                 .dropdown_content .item_text {
                     color: black;
                     font-size: 16px;
+                    text-shadow: none;
                 }
             }
         }
@@ -606,6 +607,7 @@
     padding-bottom: 9px;
     padding-top: 9px;
     height: unset !important;
+    flex-shrink: 0;
 
     .volumer {
         display: flex;
@@ -645,6 +647,10 @@
     &.contour_button {
         border-color: @theme-group-style-selected-item-bg-color !important;
         color: @theme-group-style-selected-item-bg-color !important;
+    }
+
+    &.clear_button {
+        background: transparent !important;
     }
 }
 
@@ -980,6 +986,7 @@
         line-height: 48px !important;
         background: #D7EAFF;
         border: none !important;
+        box-shadow: none !important;
         border-radius: 12px;
     }
 
@@ -1019,9 +1026,13 @@
 }
 
 .messages_panel .items_list .item {
-    .item_content > .controls > .custom_checkbox {
-        position: relative;
-        top: 14px;
+    .item_content {
+        display: flex;
+        align-items: center;
+    }
+
+    .data {
+        flex-grow: 1;
     }
 
     .flag {
@@ -1051,6 +1062,10 @@
             color: #c4c4c4;
             font-weight: 600;
         }
+    }
+
+    .size, .date {
+        margin-top: 0;
     }
 }
 
