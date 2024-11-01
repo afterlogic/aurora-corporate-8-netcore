@@ -21,6 +21,10 @@
 	background: linear-gradient(90deg, #786ee2 0%, #bb4fef 87.38%);
 }
 
+.report_panel {
+    left: 0;
+}
+
 .theme-tabsbar() {
 	@tabsbar-item-fontsize: 10.6pt;
 	@tabsbar-item-font-color: #888785;
@@ -597,6 +601,21 @@
 
 @theme-section-title-color: #777777;
 @theme-section-title-text-shadow: 0px 1px 0px #ffffff;
+
+.screen > .panels > .left_panel .panel_bottom {
+    padding-bottom: 9px;
+    padding-top: 9px;
+    height: unset !important;
+
+    .volumer {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 8px;
+        font-size: 14px;
+        line-height: 16px;
+        color: #8C8C96;
+    }
+}
 
 .volumer {
     padding: 0 25px !important;
