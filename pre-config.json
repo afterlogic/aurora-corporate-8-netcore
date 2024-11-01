@@ -16,6 +16,7 @@
 			"DefaultAnonymScreenHash": "login",
 			"DefaultUserScreenHash": "mail",
 			"AllowMobile": true,
+			"ShowQuotaBarTextAsTooltip": false,
 			"ThemeList": ["Default", "DefaultDark", "DeepForest", "Funny", "Sand", "Netcore", "NetcoreNext"],
 			"Theme": "NetcoreNext"
 		},
