@@ -652,6 +652,11 @@
     &.clear_button {
         background: transparent !important;
     }
+
+    &.download {
+        background: transparent !important;
+        padding: 0 !important;
+    }
 }
 
 .message_viewer {
@@ -839,6 +844,7 @@
 
     & > .middle_bar > .panel_center .items_list .folders:first-child {
         border-bottom: 2px solid #DDDDDD;
+        padding-bottom: 10px;
     }
 }
 
@@ -896,8 +902,6 @@
 .MailLayout .center_panel .toolbar,
 .ContactsLayout .center_panel .toolbar {
     padding-left: 30px;
-    background: unset;
-    border-bottom: none;
 }
 
 .MailLayout .center_panel .toolbar .content .group > .item.control {
@@ -937,6 +941,7 @@
 
 .ContactsLayout > .panels > .left_panel.groups_panel .panel_center .items_list {
     & > div:not(.item) {
+        margin-top: 10px;
         padding: 10px 0;
         border-top: 2px solid #ddd;
         border-bottom: 2px solid #ddd;
@@ -972,8 +977,10 @@
         color: #555;
     }
 
-    .items_sub_list > .item.selected {
-        background-color: #EBF6FD !important;
+    .item .key {
+        &::before {
+            color: @theme-common-link-color !important;
+        }
     }
 
     .custom_checkbox {
@@ -1094,6 +1101,8 @@
     .panel.center_panel .panel_content .toolbar{
         border-top-left-radius: @panel-border-radius !important;
         border-top-right-radius: @panel-border-radius !important;
+        background: #fff;
+        border-bottom: none;
     }
 
     .panel.center_panel > .panel_content > .middle_bar > .panel_bottom {
