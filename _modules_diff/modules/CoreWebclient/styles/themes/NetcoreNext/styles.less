@@ -1175,13 +1175,21 @@ li.address_capsule {
 
 .panels.settings {
     height: 100% !important;
+    column-gap: 10px;
 
     .panel.data {
         width: unset !important;
         flex-grow: 1 !important;
+        min-height: fit-content;
 
         .panel_content {
-            width: fit-content;
+            width: 66%;
+            min-width: 750px;
+            min-height: fit-content;
+        }
+
+        .panel_content .middle_bar {
+            min-height: fit-content;
         }
     }
 
