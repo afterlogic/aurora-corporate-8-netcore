@@ -441,13 +441,8 @@
 @theme-toolbar-height: 55px;
 
 .theme-common-panel-toolbar() {
-	background: #e0e7ef;
-	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dbe3eb), color-stop(1, #e6edf5));
-	background: -webkit-linear-gradient(bottom, #dbe3eb 0%, #e6edf5 100%);
-	background: -ms-linear-gradient(bottom, #dbe3eb, #e6edf5);
-	background: -moz-linear-gradient(center bottom, #dbe3eb 0%, #e6edf5 100%);
-	background: -o-linear-gradient(#e6edf5, #dbe3eb);
-	border-bottom: 1px solid #cacfd5;
+	background: white;
+	border-bottom: none;
 	border-radius: 4px 4px 0 0;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6edf5', endColorstr='#dbe3eb', GradientType=0);
 	white-space: nowrap;
@@ -934,7 +929,7 @@ li.address_capsule {
     }
 }
 
-.custom_checkbox {
+.custom_checkbox:not(.round) {
     border-radius: 1px;
 
     &.checked {
@@ -1115,8 +1110,6 @@ li.address_capsule {
     .panel.center_panel .panel_content .toolbar{
         border-top-left-radius: @panel-border-radius !important;
         border-top-right-radius: @panel-border-radius !important;
-        background: #fff;
-        border-bottom: none;
     }
 
     .panel.center_panel > .panel_content > .middle_bar > .panel_bottom {
@@ -1173,6 +1166,86 @@ li.address_capsule {
     background: #ffffff !important;
 }
 
+.panel.calendars_panel .calendars {
+    .section_title {
+        margin-bottom: 10px;
+    }
+
+    .section_title .title .text {
+        font-weight: 400;
+        color: @theme-text-color;
+    }
+
+    .section_title .title .icon {
+        display: none !important;
+    }
+
+    .section_title .control {
+        border: 2px solid #e3e3e3;
+        border-radius: 5px;
+        color: #e3e3e3;
+        position: relative;
+
+        &::before {
+            content: '' !important;
+            position: absolute;
+            left: 50%;
+            top: 3px;
+            bottom: 3px;
+            width: 2px !important;
+            height: initial !important;
+            background: #e3e3e3;
+            margin: 0 0 0 -1px !important;
+            border-radius: 2px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 50%;
+            right: 3px;
+            height: 2px;
+            background: #e3e3e3;
+            margin-top: -1px;
+            border-radius: 2px;
+        }
+    }
+}
+
+.panel.calendars_panel .calendars .item {
+    border-radius: 7px !important;
+    margin-left: 36px;
+    margin-bottom: 16px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+
+    .label-container {
+        margin-left: -40px;
+    }
+
+    .custom_checkbox {
+        margin-right: 18px !important;
+    }
+
+    .title {
+        font-weight: 700 !important;
+        font-size: 16px !important;
+    }
+}
+
+.TasksLayout .panel.calendars_panel .calendars .item .button-container {
+    display: none;
+}
+
+.TasksLayout .panel.calendars_panel .calendars .item .label-container {
+    padding-right: 0 !important;
+}
+
+.TasksLayout .panel.item_viewer .panel_top .toolbar {
+    float: right;
+}
+
 .panels.settings {
     height: 100% !important;
     column-gap: 10px;
@@ -1197,6 +1270,3 @@ li.address_capsule {
         width: 17% !important;
     }
 }
-
-
-
