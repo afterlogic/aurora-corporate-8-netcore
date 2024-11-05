@@ -659,22 +659,23 @@
     }
 }
 
+span.address_capsule,
+li.address_capsule {
+    background: #EDEDED !important;
+    color: @theme-text-color !important;
+    font-weight: 400 !important;
+    border-color: transparent !important;
+    border-radius: 24px !important;
+
+    &.found_contact {
+        background: @theme-group-style-selected-item-bg !important;
+        color: #fff !important;
+    }
+}
+
 .message_viewer {
     .message_header {
         background: unset !important;
-    }
-
-    .message_header .header_content .message_info_line .address_capsule {
-        background: #EDEDED;
-        color: @theme-text-color;
-        font-weight: 400;
-        border-color: transparent;
-        border-radius: 24px;
-
-        &.found_contact {
-            background: @theme-group-style-selected-item-bg;
-            color: #fff;
-        }
     }
 
     .message_header .header_content .message_info_line .add_contact {
@@ -755,8 +756,21 @@
     box-shadow: 0px 1px 2px #cccccc !important;
 }
 
+.compose_popup .popup_panel,
+.compose_popup .popup_panel > .panels,
+.compose_popup .popup_panel > .panels > .panel.compose {
+    border-radius: @panel-border-radius;
+}
+
 .panel.compose .panel_content > .toolbar {
 	border: none;
+}
+
+.compose_popup .panel.compose {
+    .panel.message_panel {
+        box-shadow: none;
+        border-radius: 0;
+    }
 }
 
 .popup.files .popup_panel .panels .panel.storages_panel {
