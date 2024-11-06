@@ -1236,6 +1236,96 @@ li.address_capsule {
     }
 }
 
+.screen > .panels > .panel.left_panel.calendars_panel,
+.screen > .panels > .panel.center_panel.calendar {
+    .panel_content .middle_bar {
+        border-bottom-right-radius: @panel-border-radius;
+        border-bottom-left-radius: @panel-border-radius;
+    }
+}
+
+.screen > .panels > .panel.left_panel.calendars_panel .panel_bottom {
+    padding-bottom: 0;
+    background: #EFEFF1;
+
+    .ui-datepicker {
+        padding-bottom: 0;
+    }
+
+    .ui-datepicker-title {
+        font-size: 16px;
+        color: @theme-text-color;
+        font-weight: normal;
+    }
+
+    .ui-datepicker-prev, .ui-datepicker-next {
+        background-color: #C8E2FD66;
+        border-radius: 50%;
+
+        &::before {
+            color: #0064FA;
+            font-weight: bold;
+        }
+    }
+
+    .ui-datepicker table {
+        border-spacing: 0 10px;
+        border-collapse: separate;
+    }
+
+    .ui-datepicker th {
+        font-size: 10px;
+        color: #8C8C96;
+    }
+
+    .ui-datepicker-calendar td {
+        line-height: 1.6;
+    }
+
+    .ui-state-default {
+        color: #3D3737;
+    }
+
+    .ui-priority-secondary {
+        color: #8C8C9666;
+        opacity: unset;
+    }
+
+    .ui-datepicker tr.current_week {
+        background: #C8E2FD66;
+
+        .ui-datepicker-current-day.ui-datepicker-today {
+            display: block;
+            background: unset;
+            border-radius: 4px;
+            padding-block: 0;
+
+            a {
+                max-width: 25px;
+                margin: 0 auto;
+                border: 1px solid #469CF8;
+                color: black;
+            }
+        }
+    }
+}
+
+.screen > .panels > .panel.center_panel.calendar  {
+    .toolbar .range_select .item.passive .text {
+        font-weight: 700;
+        color: @theme-text-color;
+    }
+
+    .toolbar .date_select {
+        float: right;
+    }
+
+    .fc .fc-body .fc-day-number {
+        font-size: 15px;
+        color: @theme-text-color;
+    }
+}
+
 .TasksLayout .panel.calendars_panel .calendars .item .button-container {
     display: none;
 }
