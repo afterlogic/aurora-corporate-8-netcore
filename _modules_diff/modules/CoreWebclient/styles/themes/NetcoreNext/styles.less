@@ -36,7 +36,7 @@
     position: static !important;
     margin-top: 15px !important;
     padding-top: 0 !important;
-    width: 100px !important;
+    width: 80px !important;
     height: auto;
 
     & > .content {
@@ -809,13 +809,16 @@ li.address_capsule {
 .screens {
     height: 100% !important;
     flex-direction: row !important;
-    padding-top: 54px !important;
+
+    html.no-newtab & {
+        padding-top: 54px !important;
+    }
 }
 
 .screen {
     box-sizing: border-box;
     height: 100% !important;
-    padding: 15px 15px 15px 0px !important;
+    padding: 15px !important;
 
     &.MailLayout {
         .center_panel {
