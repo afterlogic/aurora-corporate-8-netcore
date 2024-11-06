@@ -24,13 +24,13 @@ module.exports = function () {
 
         updateTabsbarClass();
 
-        const newEl = $('<div>', { class: 'pin-menu' });
-        newEl.on('click', function () {
-          const currentState = localStorage.getItem('aurora_tabsbar_expanded') === 'true';
-          localStorage.setItem('aurora_tabsbar_expanded', !currentState);
-          updateTabsbarClass();
-        });
-        tabsbarContent.append(newEl);
+        // const newEl = $('<div>', { class: 'pin-menu' });
+        // newEl.on('click', function () {
+          // const currentState = localStorage.getItem('aurora_tabsbar_expanded') === 'true';
+          // localStorage.setItem('aurora_tabsbar_expanded', !currentState);
+          // updateTabsbarClass();
+        // });
+        // tabsbarContent.append(newEl);
 
 
         $('.tabsbar').on('mouseenter', function () {
