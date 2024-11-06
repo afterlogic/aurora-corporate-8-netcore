@@ -102,6 +102,9 @@
 		"MailLoginFormMobileWebclient": {
 			"Disabled": true
 		},
+		"MailMultiAccountsPlugin": {
+			"Disabled": true
+		},
 		"ActiveServer": {
 			"Disabled": true
 		},
