@@ -39,6 +39,7 @@
 		},
 		"MailWebclient": {
 			"AllowSearchMessagesBySubject": true,
+			"AllowOtherModulesToReplaceTabsbarHeader": true,
 			"ShowEmailAsTabName": false
 		},
 		"ChangePasswordWebclient": {
