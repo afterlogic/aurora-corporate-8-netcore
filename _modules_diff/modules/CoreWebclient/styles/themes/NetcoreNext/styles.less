@@ -400,6 +400,7 @@
 .tabsbar .item.emails .control {
     position: absolute;
     top: calc(50% - 4px);
+    left: 70px;
     transform: translateY(-50%);
     background: white;
     width: 22px;
@@ -744,6 +745,11 @@ li.address_capsule {
     }
 }
 
+.panels .panel.item_viewer > .panel_content > .middle_bar > .panel_bottom.notes_container {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
 .files .attachments .item.file .item_content,
 .message_viewer .attachments .item .item_content {
 	background: #f7f7f7 !important;
@@ -756,11 +762,15 @@ li.address_capsule {
     border-radius: @panel-border-radius;
 }
 
-.panel.compose .panel_content > .toolbar {
-	border: none;
+.popup_panel {
+    border-radius: @panel-border-radius !important;
 }
 
-.compose_popup .panel.compose {
+.panel.compose {
+    .panel_content > .toolbar {
+        border: none;
+    }
+
     .panel.message_panel {
         box-shadow: none;
         border-radius: 0;
@@ -950,6 +960,11 @@ li.address_capsule {
     }
 }
 
+.TasksLayout .custom_checkbox.round .icon {
+    box-shadow: none !important;
+    border-color: #b4b5b6 !important;
+}
+
 .ContactsLayout > .panels > .left_panel.groups_panel .panel_center .items_list {
     & > div:not(.item) {
         margin-top: 10px;
@@ -1102,10 +1117,19 @@ li.address_capsule {
     }
 }
 
+.panel.files .items_list .item {
+    background: none !important;
+}
+
 .screen > .panels,
 .screen > .panels > .panel,
 .screen > .panels > .panel.center_panel .panel_content {
     border-radius: @panel-border-radius !important;
+}
+
+.panel.center_panel.messages_panel > .panel_content > .middle_bar {
+    border-bottom-left-radius: @panel-border-radius !important;
+    border-bottom-right-radius: @panel-border-radius !important;
 }
 
 .panels {
@@ -1218,12 +1242,21 @@ li.address_capsule {
 .panel.calendars_panel .calendars .item {
     border-radius: 7px !important;
     margin-left: 36px;
+    margin-right: 14px !important;
     margin-bottom: 16px !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
 
     .label-container {
         margin-left: -40px;
+    }
+
+    .button-container {
+        padding-right: 14px !important;
+    }
+
+    .button-container .control::before {
+        font-size: 23px;
     }
 
     .custom_checkbox {
@@ -1241,6 +1274,16 @@ li.address_capsule {
     .panel_content .middle_bar {
         border-bottom-right-radius: @panel-border-radius;
         border-bottom-left-radius: @panel-border-radius;
+    }
+
+    .panel_content .middle_bar > .dropdowns {
+        right: 14px;
+        left: 36px;
+        width: auto;
+    }
+
+    .panel_content .middle_bar > .dropdowns .dropdown_helper {
+        width: 100%;
     }
 }
 
@@ -1280,6 +1323,10 @@ li.address_capsule {
 
     .ui-datepicker-calendar td {
         line-height: 1.6;
+
+        a {
+            border: 1px solid transparent;
+        }
     }
 
     .ui-state-default {
@@ -1291,19 +1338,21 @@ li.address_capsule {
         opacity: unset;
     }
 
+    .ui-datepicker-current-day.ui-datepicker-today {
+        border-radius: 4px;
+    }
+
     .ui-datepicker tr.current_week {
         background: #C8E2FD66;
 
-        .ui-datepicker-current-day.ui-datepicker-today {
+        .ui-datepicker-current-day.ui-datepicker-current-day {
             display: block;
-            background: unset;
             border-radius: 4px;
-            padding-block: 0;
 
             a {
                 max-width: 25px;
                 margin: 0 auto;
-                border: 1px solid #469CF8;
+                border-color: #469CF8;
                 color: black;
             }
         }
