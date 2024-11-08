@@ -746,8 +746,7 @@ li.address_capsule {
 }
 
 .panels .panel.item_viewer > .panel_content > .middle_bar > .panel_bottom.notes_container {
-    padding-right: 20px !important;
-    padding-left: 20px !important;
+    padding: 20px !important;
 }
 
 .files .attachments .item.file .item_content,
@@ -763,6 +762,10 @@ li.address_capsule {
 }
 
 .popup_panel {
+    border-radius: @panel-border-radius !important;
+}
+
+.panel.message_viewer {
     border-radius: @panel-border-radius !important;
 }
 
@@ -927,6 +930,18 @@ li.address_capsule {
     &:focus {
         border-color: #93b5e3 !important;
         box-shadow: none !important;
+    }
+}
+
+select.input {
+    appearance: none;
+    position: relative;
+    background: url("./images/arrow-down.svg") no-repeat right 10px center;
+    background-size: 13px auto;
+
+    &::after {
+        position: absolute;
+        content: 'a';
     }
 }
 
