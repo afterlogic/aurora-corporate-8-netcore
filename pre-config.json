@@ -20,6 +20,22 @@
 			"ThemeList": ["Default", "DefaultDark", "DeepForest", "Funny", "Sand", "Netcore", "NetcoreNext"],
 			"Theme": "NetcoreNext"
 		},
+		"EditorSummernoteWebclient": {
+			"FontNames": [
+				"Sans-Serif",
+				"Serif",
+				"Monospace",
+				"Arial",
+				"Arial Black",
+				"Arial Narrow",
+				"Comic Sans MS",
+				"Garamond",
+				"Georgia",
+				"Tahoma",
+				"Trebuchet MS",
+				"Verdana"
+			]
+		},
 		"SessionTimeoutWebclient": {
 			"Disabled": true
 		},
