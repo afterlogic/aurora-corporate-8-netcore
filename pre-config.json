@@ -64,7 +64,17 @@
 		"FilesWebclient": {
 			"ShowCommonSettings": true,
 			"ShowFilesApps": false,
-			"PublicLinksEnabled": false
+			"PublicLinksEnabled": false,
+			"FilesSortBy": {
+				"Allow": true,
+				"DisplayOptions": [
+					"Filename",
+					"Size",
+					"Modified"
+				],
+				"DefaultSortBy": "Filename",
+				"DefaultSortOrder": "Asc"
+			}
 		},
 		"Calendar": {
 			"AllowTasks": true,
