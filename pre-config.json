@@ -45,7 +45,24 @@
 		"Mail": {
 			"MessagesSortBy": {
 				"Allow": true,
-				"List": [],
+				"List": [
+					{
+						"SortBy": "arrival",
+						"LangConst": "LABEL_SORT_BY_DATE"
+					},
+					{
+						"SortBy": "from",
+						"LangConst": "LABEL_SORT_BY_FROM"
+					},
+					{
+						"SortBy": "to",
+						"LangConst": "LABEL_SORT_BY_TO"
+					},
+					{
+						"SortBy": "size",
+						"LangConst": "LABEL_SORT_BY_SIZE"
+					}
+				],
 				"DefaultSortBy": "arrival",
 				"DefaultSortOrder": "desc"
 			},
