@@ -8,6 +8,13 @@
 	border-radius: 3px;
 }
 
-.calendar_popup.calendar_event .main_panel .fieldset.main .row .value.scrollable_field .input {
-    min-height: 40px;
+.popup.calendar_popup {
+	.close:before {
+		color: #888 !important;
+		font-weight: 600 !important;
+	}
+
+	&.calendar_create .close:before {
+		color: #fff !important;
+	}
 }
