@@ -1,7 +1,7 @@
 .tabsbar > .content > .item {
     &.usermenu {
         position: absolute;
-        top: 10px;
+        top: 15px;
         right: 15px;
         padding: 0 !important;
 
@@ -26,54 +26,50 @@
         }
         
         .dropdown_content {
-            padding: 15px !important;
+            padding: 12px !important;
             margin: 5px 0 0;
-            box-sizing: border-box;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0px 0px 10px 0px #00000040;
         }
 
         .item {
             display: flex;
-            column-gap: 22px;
+            column-gap: 10px;
             align-items: center;
-            padding: 8px 25px 8px 8px;
+            padding: 8px 12px 8px 8px;
             color: #000;
-            border-radius: 11px;
+            border-radius: 10px;
 
             &:hover {
                 background: #eee;
             }
-        }
 
-        .item .item_icon {
-            display: block;
-            width: 30px;
-            height: 30px;
-            box-shadow: 0px 0px 10px 0px #00000040;
-            border-radius: 11px;
-            background-repeat: no-repeat !important;
-            background-position: center !important;
-            background-size: 18px !important;
-        }
+            .item_icon {
+                display: block;
+                width: 32px;
+                height: 32px;
+                box-shadow: 0px 0px 10px 0px #00000040;
+                border-radius: 10px;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
 
+            .item_text {
+                display: block;
+                font-size: 13px;
+                text-shadow: none;
+            } 
+        }
+        
         .item-settings .item_icon {
             background: #5BAAEE;
             background-image: url("./images/settings.svg") !important;
+            background-size: 18px !important;
         }
 
         .item-logout .item_icon {
-            background-size: 20px !important;
-            background-position-x: 65% !important;
             background: #F17374;
             background-image: url("./images/logout.svg") !important;
+            background-size: 17px !important;
+            background-position-x: 65% !important;
         }
-
-        .item .item_text {
-            display: block;
-            font-size: 15px;
-            letter-spacing: 0.25px;
-        } 
     }
 }
