@@ -12,6 +12,7 @@
 
 // local variables
 @_panel-border-radius: 10px;
+@_panels-screen-offset: 15px;
 @_tabsbar-item-padding-left: 20px;
 @_tabsbar-item-padding-right: 20px;
 @_tabsbar-item-padding-bottom: 20px;
@@ -805,7 +806,7 @@ li.address_capsule {
     .screen {
         box-sizing: border-box;
         height: 100% !important;
-        padding: 15px !important;
+        padding: @_panels-screen-offset !important;
         html.no-newtab & {
             padding-top: 0px !important;
             padding-left: 0px !important;
@@ -1403,7 +1404,8 @@ select.input {
         .panel.data {
             width: unset !important;
             flex-grow: 1 !important;
-            min-height: fit-content;
+            min-height: calc(100vh - @theme-tabs-height - @_panels-screen-offset);
+            height: fit-content;
     
             .panel_content {
                 width: 66%;
@@ -1418,6 +1420,8 @@ select.input {
     
         .panel.navigation_panel {
             width: 17% !important;
+            height: fit-content;
+            min-height: 100%;
         }
     }
 }
