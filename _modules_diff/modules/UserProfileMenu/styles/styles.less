@@ -4,3 +4,37 @@
         display: none;
     }
 }
+
+.tabsbar {
+    .item.usermenu {
+        .userinfo {
+            position: absolute;
+            right: 0px;
+            display: none;
+            
+            .userinfo_content {
+                position: absolute;
+                right: 0;
+                box-shadow: 0px 0px 10px 0px #00000040;
+                background: #fff;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 13px;
+                color: #000;
+                margin-top: 5px;
+            }
+
+            .user_name {
+                font-size: 16px;
+            }
+        }
+
+        &:hover .userinfo {
+            display: block;
+        }
+
+        &.expand .userinfo {
+            display: none;
+        }
+    }
+}
