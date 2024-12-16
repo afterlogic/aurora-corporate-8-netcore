@@ -241,6 +241,14 @@
                 }
             }
 
+            &.chat .link {
+                background: linear-gradient(to top, #f5455c, lighten(spin(#f5455c, 20), 5%));
+
+                &::before {
+                    background-image: url("./images/chat.svg");
+                }
+            }
+
             &.new_button_panel {
                 position: absolute;
                 top: 20px;
@@ -858,9 +866,15 @@ li.address_capsule {
     max-width: 40%;
     padding: 0 !important;
 
-    .extended .search_fieldset .section .input {
-        padding: 0px !important;
-        border-radius: 0px !important;
+    .extended .search_fieldset .section {
+        .input {
+            padding: 0px !important;
+            border-radius: 0px !important;
+        }
+        .placeholder {
+            top: 0px !important;
+            font-size: 11pt !important;
+        }
     }
     & > .input {
         min-height: 38px !important;
