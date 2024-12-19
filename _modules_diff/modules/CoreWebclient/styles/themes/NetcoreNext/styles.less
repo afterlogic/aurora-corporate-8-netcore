@@ -53,6 +53,9 @@
         align-items: flex-start !important;
 
         > .item{
+            .helper {
+                display: none;
+            }
             .link {
                 position: relative;
                 padding: 2px; // Prevent link text shifting by applying a 3px border only to the current link
@@ -119,6 +122,7 @@
             
             &.emails {
                 .helper.has_control {
+                    display: block;
                     position: relative;
                 }
 
