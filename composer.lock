@@ -1334,18 +1334,18 @@
         },
         {
             "name": "afterlogic/aurora-module-office-document-editor",
-            "version": "0.10.33",
+            "version": "0.10.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afterlogic/aurora-module-office-document-editor",
-                "reference": "tags/0.10.33"
+                "reference": "tags/0.10.35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/afterlogic/aurora-module-office-document-editor/archive/0.10.33.zip"
+                "url": "https://github.com/afterlogic/aurora-module-office-document-editor/archive/0.10.35.zip"
             },
             "require": {
-                "afterlogic/aurora-framework": "~0.10.0",
+                "afterlogic/aurora-framework": "~0.10.0 || dev-master",
                 "php": ">=5.4.0"
             },
             "type": "aurora-module",
@@ -1357,7 +1357,7 @@
                     "/"
                 ]
             },
-            "time": "2024-11-18T15:54:38+00:00"
+            "time": "2025-02-10T10:29:50+00:00"
         },
         {
             "name": "afterlogic/aurora-module-office-document-viewer",
@@ -2042,18 +2042,18 @@
         },
         {
             "name": "afterlogic/aurora-module-webclient-files",
-            "version": "0.10.66",
+            "version": "0.10.68",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afterlogic/aurora-module-webclient-files",
-                "reference": "tags/0.10.66"
+                "reference": "tags/0.10.68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/afterlogic/aurora-module-webclient-files/archive/0.10.66.zip"
+                "url": "https://github.com/afterlogic/aurora-module-webclient-files/archive/0.10.68.zip"
             },
             "require": {
-                "afterlogic/aurora-framework": "~0.10.0",
+                "afterlogic/aurora-framework": "~0.10.0 || dev-master",
                 "php": ">=5.4.0"
             },
             "type": "aurora-module",
@@ -2065,7 +2065,7 @@
                     "/"
                 ]
             },
-            "time": "2024-12-12T20:33:05+00:00"
+            "time": "2025-02-10T12:52:45+00:00"
         },
         {
             "name": "afterlogic/aurora-module-webclient-files-cut-copy-paste-plugin",
