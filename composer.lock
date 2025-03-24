@@ -1940,15 +1940,15 @@
         },
         {
             "name": "afterlogic/aurora-module-webclient-editor-summernote",
-            "version": "0.10.10",
+            "version": "0.10.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote",
-                "reference": "tags/0.10.10"
+                "reference": "tags/0.10.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote/archive/0.10.10.zip"
+                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote/archive/0.10.11.zip"
             },
             "require": {
                 "afterlogic/aurora-framework": "~0.10.0 || dev-master"
@@ -1957,7 +1957,7 @@
             "extra": {
                 "installer-name": "EditorSummernoteWebclient"
             },
-            "time": "2025-03-18T10:44:58+00:00"
+            "time": "2025-03-24T15:14:31+00:00"
         },
         {
             "name": "afterlogic/aurora-module-webclient-external-clients-login-form",
@@ -2809,16 +2809,16 @@
         },
         {
             "name": "afterlogic/mailso",
-            "version": "1.5.68",
+            "version": "1.5.69",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afterlogic/MailSo.git",
-                "reference": "2409c27217fe0ff2260b76f0e2635abaac8909e4"
+                "reference": "3e33f97c3e35e1a99a7a163843abb443d0156283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afterlogic/MailSo/zipball/2409c27217fe0ff2260b76f0e2635abaac8909e4",
-                "reference": "2409c27217fe0ff2260b76f0e2635abaac8909e4",
+                "url": "https://api.github.com/repos/afterlogic/MailSo/zipball/3e33f97c3e35e1a99a7a163843abb443d0156283",
+                "reference": "3e33f97c3e35e1a99a7a163843abb443d0156283",
                 "shasum": ""
             },
             "require": {
@@ -2848,9 +2848,9 @@
             "homepage": "https://github.com/afterlogic/mailso",
             "support": {
                 "issues": "https://github.com/afterlogic/MailSo/issues",
-                "source": "https://github.com/afterlogic/MailSo/tree/1.5.68"
+                "source": "https://github.com/afterlogic/MailSo/tree/1.5.69"
             },
-            "time": "2024-07-19T10:47:43+00:00"
+            "time": "2025-03-24T15:23:30+00:00"
         },
         {
             "name": "aws/aws-crt-php",
