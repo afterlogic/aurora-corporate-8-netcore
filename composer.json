@@ -103,6 +103,7 @@
 		"afterlogic/aurora-module-webclient-openpgp": "~0.10.0",
 		"afterlogic/aurora-module-webclient-session-timeout": "~0.10.0",
 		"afterlogic/aurora-module-webclient-settings": "~0.10.0",
+		"afterlogic/aurora-module-mobile-webclient-settings": "~0.10.0",
 		"afterlogic/aurora-module-webclient-standard-login-form": "~0.10.0",
 		"afterlogic/aurora-module-mobile-webclient-standard-login-form": "~0.10.0",
 		"afterlogic/aurora-module-oembed-files": "~0.10.0",
@@ -118,6 +119,7 @@
 		"afterlogic/aurora-module-tasks": "~0.10.0",
 		"afterlogic/aurora-module-import-export-mail-plugin": "~0.10.0",
 		"afterlogic/aurora-module-webclient-recaptcha-plugin": "~0.10.0",
+		"afterlogic/aurora-module-webclient-cloudflare-turnstile-plugin": "~0.10.0",
 		"afterlogic/aurora-module-mail-master-password": "~0.10.0",
 		"afterlogic/aurora-module-webclient-mail-login-form": "~0.10.0",
 		
@@ -130,6 +132,7 @@
 		"afterlogic/aurora-module-corporatefiles": "~0.10.0",
 		"afterlogic/aurora-module-webclient-outlook-sync": "~0.10.0",
 		"afterlogic/aurora-module-webclient-mail-signup": "~0.10.0",
+		
 		"afterlogic/aurora-module-two-factor-auth": "~0.10.0",
 		
 		"afterlogic/aurora-module-override-user-settings": "~0.10.0",
@@ -141,6 +144,8 @@
 		"afterlogic/aurora-module-activity-history": "~0.10.0",
 		"afterlogic/aurora-module-webclient-mobile-apps": "~0.10.0",
 		"afterlogic/aurora-module-webclient-openpgp-files": "~0.10.0",
+		"afterlogic/aurora-module-mobile-webclient-openpgp": "~0.10.0",
+		"afterlogic/aurora-module-mobile-webclient-openpgp-files": "~0.10.0",
 		"afterlogic/aurora-module-gmail-connector": "~0.10.0",
 		"afterlogic/aurora-module-webclient-rocketchat": "~0.10.0",
 		"afterlogic/aurora-module-mail-scheduled-messages": "~0.10.0",
