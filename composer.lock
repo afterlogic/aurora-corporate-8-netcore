@@ -2045,15 +2045,15 @@
         },
         {
             "name": "afterlogic/aurora-module-webclient-editor-summernote",
-            "version": "0.10.13",
+            "version": "0.10.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote",
-                "reference": "tags/0.10.13"
+                "reference": "tags/0.10.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote/archive/0.10.13.zip"
+                "url": "https://github.com/afterlogic/aurora-module-webclient-editor-summernote/archive/0.10.14.zip"
             },
             "require": {
                 "afterlogic/aurora-framework": "~0.10.0 || dev-master"
@@ -2062,7 +2062,7 @@
             "extra": {
                 "installer-name": "EditorSummernoteWebclient"
             },
-            "time": "2026-04-21T11:08:48+00:00"
+            "time": "2026-09-10T18:48:23+00:00"
         },
         {
             "name": "afterlogic/aurora-module-webclient-external-clients-login-form",
@@ -10032,10 +10032,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
